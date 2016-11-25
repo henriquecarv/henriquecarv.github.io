@@ -1,0 +1,25 @@
+{
+  "name": "henriquecarv_Portfolio",
+  "authors": [
+    "Henrique <henriquecarv.cruz@gmail.com>"
+  ],
+  "description": "Professional_Portfolio",
+  "main": "",
+  "keywords": [
+    "portfolio"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-material-design": "^4.0.2"
+  }
+}
