@@ -2,6 +2,7 @@
 
 ### Bower ###
 bower_components
+node_modules
 public
 .bower-cache
 .bower-registry
