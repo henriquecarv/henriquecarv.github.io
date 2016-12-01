@@ -16,10 +16,12 @@
     "node_modules",
     "bower_components",
     "public",
+    "publish",
     "test",
     "tests"
   ],
   "dependencies": {
-    "bootstrap-material-design": "^4.0.2"
+    "bootstrap-material-design": "^4.0.2",
+    "angular": "^1.5.9"
   }
 }

@@ -17,9 +17,15 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/henriquecarv/henriquecarv.bitbucket.org#readme",
   "devDependencies": {
+    "browser-sync": "^2.18.2",
     "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.13",
     "gulp-concat": "^2.6.1",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-jshint": "^2.0.4",
     "gulp-load": "^0.1.1",
-    "gulp-load-plugins": "^1.4.0"
+    "gulp-load-plugins": "^1.4.0",
+    "gulp-sass": "^2.3.2",
+    "jshint": "^2.9.4"
   }
 }

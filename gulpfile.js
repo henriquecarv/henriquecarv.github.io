@@ -1,37 +1,44 @@
 // Include gulp
 var gulp = require('gulp');
-// Include plugins
-var plugins = require('gulp-load-plugins')({
-    pattern: ['gulp-*', 'gulp.*', 'main-bower-files'],
-    replaceString: /\bgulp[\.]/
-});
-
-// Define default destination folder
-var dest = 'www/public/';
-
-gulp.src(plugins.mainBowerFiles())
-    .pipe(plugins.filter('*.js'))
-    .pipe(/* doing something with the JS scripts */)
-    .pipe(gulp.dest(dest + 'js'));
-
-gulp.task('js', function () {
-
-    var jsFiles = ['src/js/*'];
-
-    gulp.src(plugins.mainBowerFiles().concat(jsFiles))
-        .pipe(plugins.filter('*.js'))
-        .pipe(plugins.concat('main.js'))
-        .pipe(plugins.uglify())
-        .pipe(gulp.dest(dest + 'js'));
-});
+var cleanCSS = require('gulp-clean-css');
+var concatCss = require('gulp-concat-css');
+var browserSync = require('browser-sync').create();
+var sass = require('gulp-sass');
+var jshint = require('gulp-jshint');
 
 gulp.task('css', function () {
+    gulp.src('css/*.css')
+        .pipe(concatCss('bundle.css'))
+        .pipe(cleanCSS())
+        .pipe(gulp.dest('publish/css'))
+        .pipe(browserSync.stream());
+});
 
-    var cssFiles = ['src/css/*'];
+gulp.task('sass', function () {
+    gulp.src('sass/*.scss')
+        .pipe(sass({
+            outputStyle: 'compressed'
+        }))
+        .pipe(gulp.dest('publish/css'))
+        .pipe(browserSync.stream());
+});
 
-    gulp.src(plugins.mainBowerFiles().concat(cssFiles))
-        .pipe(plugins.filter('*.css'))
-        .pipe(plugins.concat('main.css'))
-        .pipe(plugins.uglify())
-        .pipe(gulp.dest(dest + 'css'));
+gulp.task('js', function () {
+    gulp.src('js/*.js')
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'))
+        .pipe(jshint.reporter('fail'))
+        .pipe(gulp.dest('publish/js'))
+        .pipe(browserSync.stream());
+});
+
+gulp.task('serve', function () {
+    browserSync.init({
+        server: "./"
+    });
+})
+
+gulp.task('default', ['serve', 'css', 'js'], function () {
+    gulp.watch('css/*.css', ['css']);
+    gulp.watch('./*.html').on('change', browserSync.reload);
 });
