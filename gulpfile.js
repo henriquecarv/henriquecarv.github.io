@@ -40,5 +40,5 @@ gulp.task('serve', function () {
 
 gulp.task('default', ['serve','css', 'js'], function () {
     gulp.watch('css/*.css', ['css']);
-    gulp.watch('./*.html').on('change', browserSync.reload);
+    gulp.watch('*.html', 'css/*.css').on('change', browserSync.reload);
 });
