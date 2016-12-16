@@ -1,8 +1,16 @@
-html,
-body,
-.view {
+html, body, .view {
     height: 100%;
 }
+
+.flex-center {
+    color: #fff;
+}
+
+footer.page-footer {
+    background-color: #1C2331;
+    margin-top: -1px;
+}
+
 .view {
     background: url(http://wallpapercave.com/wp/U6pkgpd.jpg) repeat center center fixed;
     webkit-background-size: cover;
