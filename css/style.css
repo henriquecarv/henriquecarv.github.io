@@ -1,4 +1,6 @@
-html, body, .view {
+html,
+body,
+.view {
     height: 100%;
 }
 
@@ -18,3 +20,21 @@ footer.page-footer {
     -o-background-size: cover;
     background-size: cover;
 }
+
+.view .profile-picture {
+    position: absolute;
+    top: 160px;
+}
+
+.view .profile-picture img {
+    border-radius: 50%;
+}
+
+.footer-contact-info p, .footer-contact-info address{
+    margin-bottom: 0rem !important;
+}
+
+#map {
+  height: 160px;
+  width: 50%;
+ }
