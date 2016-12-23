@@ -21,20 +21,22 @@ footer.page-footer {
     background-size: cover;
 }
 
-.view .profile-picture {
-    position: absolute;
-    top: 160px;
+.view ul li a i {
+    margin-right: 10px;
 }
 
 .view .profile-picture img {
+    display: block;
+    margin: auto;
     border-radius: 50%;
 }
 
-.footer-contact-info p, .footer-contact-info address{
+.footer-contact-info p,
+.footer-contact-info address {
     margin-bottom: 0rem !important;
 }
 
 #map {
-  height: 160px;
-  width: 50%;
- }
+    height: 160px;
+    width: 50%;
+}
