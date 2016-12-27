@@ -1,6 +1,4 @@
-html,
-body,
-.view {
+html, body, .view {
     height: 100%;
 }
 
@@ -14,29 +12,42 @@ footer.page-footer {
 }
 
 .view {
-    background: url(http://wallpapercave.com/wp/U6pkgpd.jpg) repeat center center fixed;
+    background: url(/content/img/Background_Image.jpg) repeat center center fixed;
     webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
 
+.view ul .self-introduction, .view ul .resume-files {
+    margin-top: 2rem;
+}
+
+.view ul li p a i, .view ul li p a {
+    margin-right: 0px;
+    color: #fff;
+}
+
 .view ul li a i {
     margin-right: 10px;
+    color: #fff;
+}
+
+.view ul li ul li {
+    margin-bottom: 0px;
+}
+
+.view ul li ul {
+    margin-right: 25px;
+    margin-left: 25px;
 }
 
 .view .profile-picture img {
     display: block;
     margin: auto;
-    border-radius: 50%;
+    border-radius: 100%;
 }
 
-.footer-contact-info p,
-.footer-contact-info address {
+.footer-contact-info p, .footer-contact-info address {
     margin-bottom: 0rem !important;
-}
-
-#map {
-    height: 160px;
-    width: 50%;
 }
