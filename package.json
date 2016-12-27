@@ -25,7 +25,11 @@
     "gulp-jshint": "^2.0.4",
     "gulp-load": "^0.1.1",
     "gulp-load-plugins": "^1.4.0",
+    "gulp-minify": "0.0.14",
     "gulp-sass": "^2.3.2",
     "jshint": "^2.9.4"
+  },
+  "dependencies": {
+    "gulp-load-plugins": "^1.4.0"
   }
 }
