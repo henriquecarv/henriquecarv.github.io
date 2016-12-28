@@ -5,7 +5,10 @@ Welcome to my Portfolio repository
 ## Overview
 Although I've been working as a software developer for a little while now, I decided that I needed a page to introduce myself, where people could understand some of my goals and expertise.
 
-For this project I chose to go with plain and simple HTML5, CSS and JavaScript as I thought would be necessary.
+For this project I chose to go with HTML5, CSS3 and JavaScript using:
+
+* **UI Kit:** [MDB](http://mdbootstrap.com/ "Material Design for Bootstrap")
+* **Template:** Based on [This](http://mdbootstrap.com/freebies/full-background-image-template/)
 
 In order to make my life easier, this page is using the following tools:
 
@@ -15,9 +18,9 @@ In order to make my life easier, this page is using the following tools:
 
 If you want to run this application locally you can follow the steps:
 
-1. NodeJS: Download from [here](https://nodejs.org/en/download/ "NodeJS")
-2. Bower: ```npm install bower -g```
-3. Gulp: ```npm install gulp -g```
+1. **NodeJS:** Download from [here](https://nodejs.org/en/download/ "NodeJS")
+2. **Bower:** ```npm install bower -g```
+3. **Gulp:** ```npm install gulp -g```
 
 Once you have your environment ready you can start the app by running the following commands on your terminal: 
 
