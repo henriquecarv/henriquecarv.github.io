@@ -49,7 +49,7 @@ gulp.task("serve", function () {
     browserSync.init({
         server: "./"
     });
-})
+});
 
 gulp.task("default", ["serve", "css", "js", "publishJsVendors", "publishCssVendors", "publishFontRobotoVendors", "publishFontAwesomeVendors"], function () {
     gulp.watch("css/*.css", ["css"]);
