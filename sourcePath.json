@@ -1,8 +1,9 @@
 {
     "jsVendorsSourcePath": [
-        "./public/vendor/MDBootstrap/js/jquery-3.1.1.min.js",
+        "./public/vendor/MDBootstrap/js/jquery-3.2.1.min.js",
         "./public/vendor/MDBootstrap/js/tether.min.js",
         "./public/vendor/MDBootstrap/js/bootstrap.min.js",
+        "./public/vendor/MDBootstrap/js/popper.min.js",
         "./public/vendor/MDBootstrap/js/mdb.min.js"
     ],
     "cssVendorsSourcePath": [

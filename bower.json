@@ -21,8 +21,9 @@
     "tests"
   ],
   "dependencies": {
-    "components-font-awesome": "^4.7.0",
-    "material-design-iconic-font": "^2.2.0",
-    "MDBootstrap": "^4.3.2"
+    "components-font-awesome": "latest",
+    "material-design-iconic-font": "latest",
+    "MDBootstrap": "latest",
+    "popper.js": "^1.12.3"
   }
 }

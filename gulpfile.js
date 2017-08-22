@@ -4,7 +4,8 @@ var cleanCSS = require("gulp-clean-css");
 var concatCss = require("gulp-concat-css");
 var browserSync = require("browser-sync").create();
 var config = require("./sourcePath");
-var jshint = require("gulp-jshint");
+var htmlmin = require('gulp-htmlmin');
+// var jshint = require("gulp-jshint");
 var minify = require("gulp-minify");
 
 gulp.task("css", function () {
@@ -17,11 +18,22 @@ gulp.task("css", function () {
 
 gulp.task("js", function () {
     gulp.src("js/*.js")
-        .pipe(jshint())
-        .pipe(jshint.reporter("default"))
-        .pipe(jshint.reporter("fail"))
+        // .pipe(jshint())
+        // .pipe(jshint.reporter("default"))
+        // .pipe(jshint.reporter("fail"))
         .pipe(minify())
         .pipe(gulp.dest("publish/js"))
+        .pipe(browserSync.stream());
+});
+
+gulp.task('html', function () {
+    gulp.src('./html/index.html')
+        .pipe(htmlmin({
+            collapseWhitespace: true,
+            removeComments: true,
+            removeEmptyAttributes: true
+        }))
+        .pipe(gulp.dest('./'))
         .pipe(browserSync.stream());
 });
 
@@ -51,8 +63,8 @@ gulp.task("serve", function () {
     });
 });
 
-gulp.task("default", ["serve", "css", "js", "publishJsVendors", "publishCssVendors", "publishFontRobotoVendors", "publishFontAwesomeVendors"], function () {
+gulp.task("default", ["serve", "html", "css", "js", "publishJsVendors", "publishCssVendors", "publishFontRobotoVendors", "publishFontAwesomeVendors"], function () {
     gulp.watch("css/*.css", ["css"]);
     gulp.watch("js/*.js", ["js"]);
-    gulp.watch("./*.html").on("change", browserSync.reload);
+    gulp.watch("./html/*.html").on("change", browserSync.reload);
 });

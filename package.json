@@ -17,16 +17,16 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/henriquecarv/henriquecarv.bitbucket.org#readme",
   "devDependencies": {
-    "browser-sync": "^2.18.2",
-    "gulp": "^3.9.1",
-    "gulp-clean-css": "^3.4.2",
-    "gulp-concat": "^2.6.1",
-    "gulp-concat-css": "^2.3.0",
-    "gulp-jshint": "^2.0.4",
-    "gulp-load": "^0.1.1",
-    "gulp-load-plugins": "^1.5.0",
-    "gulp-minify": "1.0.0",
-    "gulp-sass": "^3.1.0",
-    "jshint": "^2.9.4"
+    "browser-sync": "latest",
+    "gulp": "latest",
+    "gulp-clean-css": "latest",
+    "gulp-concat": "latest",
+    "gulp-concat-css": "latest",
+    "gulp-jshint": "latest",
+    "gulp-htmlmin": "latest",
+    "gulp-load": "latest",
+    "gulp-load-plugins": "latest",
+    "gulp-minify": "latest",
+    "jshint": "latest"
   }
 }
