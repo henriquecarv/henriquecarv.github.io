@@ -4,7 +4,7 @@ var cleanCSS = require("gulp-clean-css");
 var concatCss = require("gulp-concat-css");
 var browserSync = require("browser-sync").create();
 var config = require("./sourcePath");
-var htmlmin = require('gulp-htmlmin');
+var htmlmin = require("gulp-htmlmin");
 // var jshint = require("gulp-jshint");
 var minify = require("gulp-minify");
 
@@ -26,14 +26,14 @@ gulp.task("js", function () {
         .pipe(browserSync.stream());
 });
 
-gulp.task('html', function () {
-    gulp.src('./html/index.html')
+gulp.task("html", function () {
+    gulp.src("./html/index.html")
         .pipe(htmlmin({
             collapseWhitespace: true,
             removeComments: true,
             removeEmptyAttributes: true
         }))
-        .pipe(gulp.dest('./'))
+        .pipe(gulp.dest("./"))
         .pipe(browserSync.stream());
 });
 
