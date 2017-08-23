@@ -66,5 +66,6 @@ gulp.task("serve", function () {
 gulp.task("default", ["serve", "html", "css", "js", "publishJsVendors", "publishCssVendors", "publishFontRobotoVendors", "publishFontAwesomeVendors"], function () {
     gulp.watch("css/*.css", ["css"]);
     gulp.watch("js/*.js", ["js"]);
-    gulp.watch("./html/*.html").on("change", browserSync.reload);
+    gulp.watch("./html/*.html", ["html"]);
+    gulp.watch("./*.html").on("change", browserSync.reload);
 });
