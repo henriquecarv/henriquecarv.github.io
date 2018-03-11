@@ -9,7 +9,7 @@
     "portfolio"
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "http://henriquecarv.com",
   "private": true,
   "ignore": [
     "**/.*",
@@ -23,7 +23,7 @@
   "dependencies": {
     "components-font-awesome": "latest",
     "material-design-iconic-font": "latest",
-    "MDBootstrap": "latest",
+    "MDBootstrap": "4.4.1",
     "popper.js": "^1.12.3"
   }
 }
