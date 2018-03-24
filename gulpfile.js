@@ -52,6 +52,11 @@ gulp.task("publishFontRobotoVendors", function () {
         .pipe(gulp.dest(config.fontVendorsRobotoDestPath));
 });
 
+gulp.task("publishFontMaterialVendors", function () {
+    gulp.src(config.fontVendorsMaterialSourcePath)
+        .pipe(gulp.dest(config.fontVendorsMaterialDestPath));
+});
+
 gulp.task("publishFontAwesomeVendors", function () {
     gulp.src(config.fontVendorsFontAwesomeSourcePath)
         .pipe(gulp.dest(config.fontVendorsFontAwesomeDestPath));
@@ -63,7 +68,7 @@ gulp.task("serve", function () {
     });
 });
 
-gulp.task("default", ["serve", "html", "css", "js", "publishJsVendors", "publishCssVendors", "publishFontRobotoVendors", "publishFontAwesomeVendors"], function () {
+gulp.task("default", ["serve", "html", "css", "js", "publishJsVendors", "publishCssVendors", "publishFontRobotoVendors", "publishFontMaterialVendors", "publishFontAwesomeVendors"], function () {
     gulp.watch("css/*.css", ["css"]);
     gulp.watch("js/*.js", ["js"]);
     gulp.watch("./html/*.html", ["html"]);

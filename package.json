@@ -28,5 +28,10 @@
     "gulp-load-plugins": "latest",
     "gulp-minify": "latest",
     "jshint": "latest"
+  },
+  "dependencies": {
+    "components-font-awesome": "latest",
+    "material-design-iconic-font": "latest",
+    "mdbootstrap": "4.4.1"
   }
 }
