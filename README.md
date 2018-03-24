@@ -14,17 +14,14 @@ For this project I chose to go with HTML5, CSS3 and JavaScript using:
 In order to make my life easier, this page is using the following tools:
 
 * [NodeJS](https://nodejs.org/en/ "NodeJS")
-* [Bower](https://bower.io/ "Bower")
 * [Gulp](http://gulpjs.com/ "Gulp")
 
 If you want to run this application locally you can follow the steps:
 
 1. **NodeJS:** Download from [here](https://nodejs.org/en/download/ "NodeJS")
-2. **Bower:** ```npm install bower -g```
 3. **Gulp:** ```npm install gulp -g```
 
 Once you have your environment ready you can start the app by running the following commands on your terminal: 
 
 1. ```npm install```
-2. ```bower install```
 3. ```gulp```
