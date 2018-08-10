@@ -18,10 +18,9 @@ In order to make my life easier, this page is using the following tools:
 
 If you want to run this application locally you can follow the steps:
 
-1. **NodeJS:** Download from [here](https://nodejs.org/en/download/ "NodeJS")
-3. **Gulp:** ```npm install gulp -g```
+* **NodeJS:** Download from [here](https://nodejs.org/en/download/ "NodeJS")
 
 Once you have your environment ready you can start the app by running the following commands on your terminal: 
 
-1. ```npm install```
-3. ```gulp```
+1. `npm install`
+3. `npm start`

@@ -4,35 +4,34 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "./node_modules/.bin/gulp",
+    "start": "./node_modules/.bin/gulp",
+    "build": "./node_modules/.bin/gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://henriquecarv@bitbucket.org/henriquecarv/henriquecarv.bitbucket.org.git"
+    "url": "git+https://henriquecarv@github.com/henriquecarv/henriquecarv.github.io.git"
   },
   "keywords": [
     "portfolio"
   ],
   "author": "Henrique",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/henriquecarv/henriquecarv.bitbucket.org#readme",
+  "homepage": "https://github.com/henriquecarv/henriquecarv.github.io#readme",
   "devDependencies": {
-    "browser-sync": "latest",
-    "gulp": "latest",
-    "gulp-clean-css": "latest",
-    "gulp-concat": "latest",
-    "gulp-concat-css": "latest",
-    "gulp-jshint": "latest",
-    "gulp-htmlmin": "latest",
-    "gulp-load": "latest",
-    "gulp-load-plugins": "latest",
-    "gulp-minify": "latest",
-    "jshint": "latest"
+    "browser-sync": "^2.24.6",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.10.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-concat-css": "^3.1.0",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-load": "^0.1.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-minify": "^3.1.0"
   },
   "dependencies": {
-    "components-font-awesome": "latest",
-    "material-design-iconic-font": "latest",
+    "components-font-awesome": "^5.0.6",
+    "material-design-iconic-font": "^2.2.0",
     "mdbootstrap": "4.4.1"
   }
 }
