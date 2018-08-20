@@ -32,6 +32,6 @@
   "dependencies": {
     "components-font-awesome": "^5.0.6",
     "material-design-iconic-font": "^2.2.0",
-    "mdbootstrap": "4.4.1"
+    "mdbootstrap": "4.5.9"
   }
 }
