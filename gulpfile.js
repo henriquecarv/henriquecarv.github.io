@@ -1,14 +1,23 @@
+'use strict';
+
 const gulp = require('gulp');
+const sourcemaps = require('gulp-sourcemaps');
 const cleanCSS = require('gulp-clean-css');
 const concatCss = require('gulp-concat-css');
 const browserSync = require('browser-sync').create();
 const config = require('./sourcePath');
 const htmlmin = require('gulp-htmlmin');
-const minify = require('gulp-minify');
+const uglify = require('gulp-uglify');
+
+const paths = {
+	js: 'js/*.js',
+	css: 'css/*.css',
+	html: 'html/index.html',
+};
 
 const css = () => {
 	return gulp
-		.src('css/*.css')
+		.src(paths.css)
 		.pipe(concatCss('app.css'))
 		.pipe(cleanCSS())
 		.pipe(gulp.dest('publish/css'))
@@ -17,15 +26,17 @@ const css = () => {
 
 const js = () => {
 	return gulp
-		.src('js/*.js')
-		.pipe(minify())
+		.src(paths.js)
+		.pipe(sourcemaps.init())
+		.pipe(uglify())
+		.pipe(sourcemaps.write())
 		.pipe(gulp.dest('publish/js'))
 		.pipe(browserSync.stream());
 };
 
 const html = () => {
 	return gulp
-		.src('./html/index.html')
+		.src(paths.html)
 		.pipe(
 			htmlmin({
 				collapseWhitespace: true,
@@ -67,10 +78,18 @@ const publishFontAwesomeVendors = () => {
 		.pipe(gulp.dest(config.fontVendorsFontAwesomeDestPath));
 };
 
-const serve = () => {
+const reload = done => {
+	browserSync.reload();
+	done();
+};
+
+const serve = done => {
 	browserSync.init({
-		server: './',
+		server: {
+			baseDir: './',
+		},
 	});
+	done();
 };
 
 const build = gulp.series(
@@ -87,10 +106,9 @@ const build = gulp.series(
 );
 
 const watch = () => {
-	gulp.watch('css/*.css', css);
-	gulp.watch('js/*.js', js);
-	gulp.watch('html/*.html', html);
-	gulp.watch('./*.html').on('change', browserSync.reload);
+	gulp.watch(paths.css, gulp.series(css, reload));
+	gulp.watch(paths.js, gulp.series(js, reload));
+	gulp.watch(paths.html, gulp.series(html, reload));
 };
 
 gulp.task('build', build);
