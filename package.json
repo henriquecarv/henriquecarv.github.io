@@ -1,37 +1,41 @@
 {
-  "name": "professional_portfolio",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "./node_modules/.bin/gulp",
-    "build": "./node_modules/.bin/gulp build",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://henriquecarv@github.com/henriquecarv/henriquecarv.github.io.git"
-  },
-  "keywords": [
-    "portfolio"
-  ],
-  "author": "Henrique",
-  "license": "ISC",
-  "homepage": "https://github.com/henriquecarv/henriquecarv.github.io#readme",
-  "devDependencies": {
-    "browser-sync": "^2.24.6",
-    "gulp": "^4.0.0",
-    "gulp-clean-css": "^3.10.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-concat-css": "^3.1.0",
-    "gulp-htmlmin": "^4.0.0",
-    "gulp-load": "^0.1.1",
-    "gulp-load-plugins": "^1.5.0",
-    "gulp-minify": "^3.1.0"
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.2.0",
-    "material-design-iconic-font": "^2.2.0",
-    "mdbootstrap": "4.5.9"
-  }
+	"name": "professional_portfolio",
+	"version": "1.0.0",
+	"description": "Professional Portfolio",
+	"main": "index.js",
+	"scripts": {
+		"clean": "rm -rf publish/ index.html",
+		"postinstall": "npm audit fix -f",
+		"prestart": "npm run clean",
+		"start": "./node_modules/.bin/gulp",
+		"prebuild": "npm run clean",
+		"build": "./node_modules/.bin/gulp build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://henriquecarv@github.com/henriquecarv/henriquecarv.github.io.git"
+	},
+	"keywords": [
+		"portfolio",
+		"henriquecarv",
+		"mdboostrap"
+	],
+	"author": "Henrique Carvalho da Cruz <henriquecarv.cruz@gmail.com> (https://henriquecarv.com)",
+	"license": "ISC",
+	"homepage": "https://github.com/henriquecarv/henriquecarv.github.io#readme",
+	"issues": "https://github.com/henriquecarv/henriquecarv.github.io/issues",
+	"devDependencies": {
+		"browser-sync": "^2.24.6",
+		"gulp": "^4.0.0",
+		"gulp-clean-css": "^3.10.0",
+		"gulp-concat-css": "^3.1.0",
+		"gulp-htmlmin": "^4.0.0",
+		"gulp-sourcemaps": "^2.6.4",
+		"gulp-uglify": "^3.0.1"
+	},
+	"dependencies": {
+		"@fortawesome/fontawesome-free": "^5.2.0",
+		"material-design-iconic-font": "^2.2.0",
+		"mdbootstrap": "4.5.9"
+	}
 }
