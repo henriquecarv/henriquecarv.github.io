@@ -6,101 +6,93 @@ const config = require('./sourcePath');
 const htmlmin = require('gulp-htmlmin');
 const minify = require('gulp-minify');
 
-gulp.task('css', () => {
-	gulp
+const css = () => {
+	return gulp
 		.src('css/*.css')
 		.pipe(concatCss('app.css'))
 		.pipe(cleanCSS())
 		.pipe(gulp.dest('publish/css'))
 		.pipe(browserSync.stream());
-});
+};
 
-gulp.task('js', () => {
-	gulp
+const js = () => {
+	return gulp
 		.src('js/*.js')
 		.pipe(minify())
 		.pipe(gulp.dest('publish/js'))
 		.pipe(browserSync.stream());
-});
+};
 
-gulp.task('html', () => {
-	gulp
+const html = () => {
+	return gulp
 		.src('./html/index.html')
 		.pipe(
 			htmlmin({
 				collapseWhitespace: true,
 				removeComments: true,
-				removeEmptyAttributes: true
+				removeEmptyAttributes: true,
 			})
 		)
 		.pipe(gulp.dest('./'))
 		.pipe(browserSync.stream());
-});
+};
 
-gulp.task('publishJsVendors', () => {
-	gulp
+const publishJsVendors = () => {
+	return gulp
 		.src(config.jsVendorsSourcePath)
 		.pipe(gulp.dest(config.jsVendorsDestPath));
-});
+};
 
-gulp.task('publishCssVendors', () => {
-	gulp
+const publishCssVendors = () => {
+	return gulp
 		.src(config.cssVendorsSourcePath)
 		.pipe(gulp.dest(config.cssVendorsDestPath));
-});
+};
 
-gulp.task('publishFontRobotoVendors', () => {
-	gulp
+const publishFontRobotoVendors = () => {
+	return gulp
 		.src(config.fontVendorsRobotoSourcePath)
 		.pipe(gulp.dest(config.fontVendorsRobotoDestPath));
-});
+};
 
-gulp.task('publishFontMaterialVendors', () => {
-	gulp
+const publishFontMaterialVendors = () => {
+	return gulp
 		.src(config.fontVendorsMaterialSourcePath)
 		.pipe(gulp.dest(config.fontVendorsMaterialDestPath));
-});
+};
 
-gulp.task('publishFontAwesomeVendors', () => {
-	gulp
+const publishFontAwesomeVendors = () => {
+	return gulp
 		.src(config.fontVendorsFontAwesomeSourcePath)
 		.pipe(gulp.dest(config.fontVendorsFontAwesomeDestPath));
-});
+};
 
-gulp.task('serve', () => {
+const serve = () => {
 	browserSync.init({
-		server: './'
+		server: './',
 	});
-});
+};
 
-gulp.task('build', [
-	'html',
-	'css',
-	'js',
-	'publishJsVendors',
-	'publishCssVendors',
-	'publishFontRobotoVendors',
-	'publishFontMaterialVendors',
-	'publishFontAwesomeVendors'
-]);
-
-gulp.task(
-	'default',
-	[
-		'serve',
-		'html',
-		'css',
-		'js',
-		'publishJsVendors',
-		'publishCssVendors',
-		'publishFontRobotoVendors',
-		'publishFontMaterialVendors',
-		'publishFontAwesomeVendors'
-	],
-	() => {
-		gulp.watch('css/*.css', ['css']);
-		gulp.watch('js/*.js', ['js']);
-		gulp.watch('./html/*.html', ['html']);
-		gulp.watch('./*.html').on('change', browserSync.reload);
-	}
+const build = gulp.series(
+	gulp.parallel(
+		css,
+		js,
+		publishJsVendors,
+		publishCssVendors,
+		publishFontRobotoVendors,
+		publishFontMaterialVendors,
+		publishFontAwesomeVendors
+	),
+	html
 );
+
+const watch = () => {
+	gulp.watch('css/*.css', css);
+	gulp.watch('js/*.js', js);
+	gulp.watch('html/*.html', html);
+	gulp.watch('./*.html').on('change', browserSync.reload);
+};
+
+gulp.task('build', build);
+
+gulp.task('default', gulp.series(build, serve, watch));
