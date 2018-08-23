@@ -18,10 +18,13 @@
 	"keywords": [
 		"portfolio",
 		"henriquecarv",
+		"bootstrap4",
+		"jquery",
+		"gulp",
 		"mdboostrap"
 	],
 	"author": "Henrique Carvalho da Cruz <henriquecarv.cruz@gmail.com> (https://henriquecarv.com)",
-	"license": "ISC",
+	"license": "GPL",
 	"homepage": "https://github.com/henriquecarv/henriquecarv.github.io#readme",
 	"issues": "https://github.com/henriquecarv/henriquecarv.github.io/issues",
 	"devDependencies": {

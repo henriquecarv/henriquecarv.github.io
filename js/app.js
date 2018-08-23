@@ -24,16 +24,23 @@
 		ga('send', 'pageview');
 
 		var changeWidth = function() {
+			var smallProfilePicture =
+				'https://www.gravatar.com/avatar/45dc36c036a3034db00361897cd500f0.jpg?s=130';
+			var bigProfilePicture =
+				'https://www.gravatar.com/avatar/45dc36c036a3034db00361897cd500f0.jpg?s=170';
 			if ($(window).width() < 480) {
 				$('.btn')
 					.removeClass('btn-lg')
 					.addClass('btn-md');
+				$('.img-fluid').attr('src', smallProfilePicture);
 			} else {
 				$('.btn')
 					.removeClass('btn-md')
 					.addClass('btn-lg');
+				$('.img-fluid').attr('src', bigProfilePicture);
 			}
 		};
+
 		changeWidth();
 		$(window).resize(changeWidth);
 	});
