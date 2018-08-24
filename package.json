@@ -2,7 +2,7 @@
 	"name": "professional_portfolio",
 	"version": "1.0.0",
 	"description": "Professional Portfolio",
-	"main": "index.js",
+	"private": true,
 	"scripts": {
 		"clean": "rm -rf publish/ index.html",
 		"postinstall": "npm audit fix -f",
@@ -24,7 +24,7 @@
 		"mdboostrap"
 	],
 	"author": "Henrique Carvalho da Cruz <henriquecarv.cruz@gmail.com> (https://henriquecarv.com)",
-	"license": "GPL",
+	"license": "MIT",
 	"homepage": "https://github.com/henriquecarv/henriquecarv.github.io#readme",
 	"issues": "https://github.com/henriquecarv/henriquecarv.github.io/issues",
 	"devDependencies": {
