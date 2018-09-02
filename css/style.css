@@ -1,4 +1,6 @@
-html, body, .view {
+html,
+body,
+.view {
 	height: 100%;
 }
 
@@ -11,7 +13,7 @@ html, body, .view {
 	-o-background-size: cover;
 	background-attachment: fixed;
 	background-size: cover;
-	background-color: #464646
+	background-color: #464646;
 }
 
 .body {
@@ -20,11 +22,13 @@ html, body, .view {
 	width: 100%;
 	text-align: center;
 	color: #000;
-	background-color: rgba(32, 26, 22, .7);
+	background-color: rgba(32, 26, 22, 0.7);
 	z-index: 99;
 }
 
-.body h1, .body p, .body p a {
+.body h1,
+.body p,
+.body p a {
 	color: #fff;
 }
 
@@ -82,10 +86,19 @@ footer .container-fluid .top-footer .social a {
 	padding: 0 2px;
 }
 
+footer .container-fluid .top-footer .social a i {
+	font-size: 36px;
+}
+
 footer .footer-contact-info p {
 	margin-bottom: 0px;
 }
 
 footer .row .col-lg-12 {
 	padding: 0;
+}
+
+.copyleft {
+	display: inline-block;
+	transform: rotate(180deg);
 }
