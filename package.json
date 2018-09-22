@@ -9,7 +9,7 @@
 		"postinstall": "npm audit fix -f",
 		"prestart": "npm run check-modules",
 		"start": "./node_modules/.bin/gulp",
-		"prebuild": "npm run clean",
+		"prebuild": "npm run check-modules && npm run clean",
 		"build": "./node_modules/.bin/gulp build"
 	},
 	"repository": {
