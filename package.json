@@ -38,7 +38,7 @@
 		"gulp-uglify": "^3.0.1"
 	},
 	"dependencies": {
-		"@fortawesome/fontawesome-free": "^5.4.0",
+		"@fortawesome/fontawesome-free": "^5.4.1",
 		"material-design-iconic-font": "^2.2.0",
 		"mdbootstrap": "4.5.12"
 	}
