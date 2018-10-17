@@ -15,37 +15,60 @@ const paths = {
 	html: 'html/index.html',
 };
 
+let isDev = false;
+
+const toggleIsDev = done => {
+	isDev = !isDev;
+	done();
+};
+
 const css = () => {
-	return gulp
-		.src(paths.css)
-		.pipe(concatCss('app.css'))
-		.pipe(cleanCSS())
-		.pipe(gulp.dest('publish/css'))
-		.pipe(browserSync.stream());
+	let result = gulp.src(paths.css).pipe(concatCss('app.css'));
+
+	if (!isDev) {
+		result = result.pipe(cleanCSS());
+	}
+
+	result = result.pipe(gulp.dest('publish/css')).pipe(browserSync.stream());
+
+	return result;
 };
 
 const js = () => {
-	return gulp
-		.src(paths.js)
-		.pipe(sourcemaps.init())
-		.pipe(uglify())
-		.pipe(sourcemaps.write())
-		.pipe(gulp.dest('publish/js'))
-		.pipe(browserSync.stream());
+	let result = gulp.src(paths.js);
+
+	if (!isDev) {
+		result = result
+			.pipe(uglify())
+			.pipe(gulp.dest('publish/js'))
+			.pipe(browserSync.stream());
+	} else {
+		result = result
+			.pipe(sourcemaps.init())
+			.pipe(sourcemaps.write())
+			.pipe(gulp.dest('publish/js'))
+			.pipe(browserSync.stream());
+	}
+
+	return result;
 };
 
 const html = () => {
-	return gulp
-		.src(paths.html)
-		.pipe(
+	let result = gulp.src(paths.html);
+
+	if (!isDev) {
+		result = result.pipe(
 			htmlmin({
 				collapseWhitespace: true,
 				removeComments: true,
 				removeEmptyAttributes: true,
 			})
-		)
-		.pipe(gulp.dest('./'))
-		.pipe(browserSync.stream());
+		);
+	}
+
+	result = result.pipe(gulp.dest('./')).pipe(browserSync.stream());
+
+	return result;
 };
 
 const publishJsVendors = () => {
@@ -113,4 +136,4 @@ const watch = () => {
 
 gulp.task('build', build);
 
-gulp.task('default', gulp.series(build, serve, watch));
+gulp.task('default', gulp.series(toggleIsDev, build, serve, watch));
