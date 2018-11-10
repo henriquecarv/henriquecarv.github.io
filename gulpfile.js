@@ -26,7 +26,7 @@ const css = () => {
 	let result = gulp.src(paths.css).pipe(concatCss('app.css'));
 
 	if (!isDev) {
-		result = result.pipe(cleanCSS());
+		result = result.pipe(cleanCSS({compatibility: 'ie8'}));
 	}
 
 	result = result.pipe(gulp.dest('publish/css')).pipe(browserSync.stream());
