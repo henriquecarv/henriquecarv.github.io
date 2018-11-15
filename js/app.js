@@ -1,13 +1,19 @@
-(function($) {
+/* eslint-disable no-undef */
+/* eslint-disable prefer-destructuring */
+/* eslint-disable no-sequences */
+/* eslint-disable prefer-rest-params */
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-unused-expressions */
+/* eslint-disable func-names */
+(($) => {
   $(document).ready(() => {
     ((i, s, o, g, r, a, m) => {
-      i['GoogleAnalyticsObject'] = r;
-      (i[r] =
-        i[r] ||
-        function() {
+      i.GoogleAnalyticsObject = r;
+      (i[r] = i[r]
+        || function () {
           (i[r].q = i[r].q || []).push(arguments);
         }),
-        (i[r].l = 1 * new Date());
+      (i[r].l = 1 * new Date());
       (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
       a.async = 1;
       a.src = g;
@@ -18,18 +24,17 @@
     ga('send', 'pageview');
 
     const changeWidth = () => {
-      const smallProfilePicture = 'https://www.gravatar.com/avatar/45dc36c036a3034db00361897cd500f0.jpg?s=130';
-      const bigProfilePicture = 'https://www.gravatar.com/avatar/45dc36c036a3034db00361897cd500f0.jpg?s=170';
+      const urlProfilePicture = 'https://www.gravatar.com/avatar/45dc36c036a3034db00361897cd500f0.jpg?s=';
       if ($(window).width() < 480) {
         $('.btn')
           .removeClass('btn-lg')
           .addClass('btn-md');
-        $('.img-fluid').attr('src', smallProfilePicture);
+        $('.img-fluid').attr('src', `${urlProfilePicture}130`);
       } else {
         $('.btn')
           .removeClass('btn-md')
           .addClass('btn-lg');
-        $('.img-fluid').attr('src', bigProfilePicture);
+        $('.img-fluid').attr('src', `${urlProfilePicture}170`);
       }
     };
 

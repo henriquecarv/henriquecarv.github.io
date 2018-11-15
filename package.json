@@ -9,6 +9,7 @@
     "postinstall": "npm audit fix -f",
     "prestart": "npm run check-modules",
     "start": "gulp",
+    "lint": "eslint .",
     "prebuild": "npm run check-modules && npm run clean",
     "build": "gulp build"
   },
@@ -33,6 +34,9 @@
     "@babel/preset-env": "^7.1.6",
     "browser-sync": "^2.26.3",
     "eslint": "^5.9.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^3.10.0",
