@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "check-modules": "if [ ! -d 'node_modules/' ]; then npm i; fi",
-    "clean": "rm -rf publish/ index.html",
+    "clean": "rm -rf dist/ index.html",
     "postinstall": "npm audit fix -f",
     "prestart": "npm run check-modules",
     "start": "gulp",

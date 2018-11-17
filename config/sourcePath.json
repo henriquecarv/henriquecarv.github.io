@@ -63,12 +63,12 @@
       }
     },
     "dest": {
-      "js": "./publish/vendors/js/",
-      "css": "./publish/vendors/css/",
+      "js": "./dist/vendors/js/",
+      "css": "./dist/vendors/css/",
       "fonts": {
-        "roboto": "./publish/vendors/font/roboto/",
-        "material": "./publish/vendors/fonts/",
-        "fontAwesome": "./publish/vendors/webfonts/"
+        "roboto": "./dist/vendors/font/roboto/",
+        "material": "./dist/vendors/fonts/",
+        "fontAwesome": "./dist/vendors/webfonts/"
       }
     }
   },
@@ -79,8 +79,8 @@
       "html": "html/index.html"
     },
     "dest": {
-      "js": "publish/js",
-      "css": "publish/css",
+      "js": "dist/js",
+      "css": "dist/css",
       "html": "./"
     }
   }
