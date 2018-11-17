@@ -6,13 +6,8 @@ const concatCss = require('gulp-concat-css');
 const browserSync = require('browser-sync').create();
 const htmlmin = require('gulp-htmlmin');
 const uglify = require('gulp-uglify');
-const config = require('./sourcePath');
-
-const paths = {
-  js: 'js/*.js',
-  css: 'css/*.css',
-  html: 'html/index.html',
-};
+const pump = require('pump');
+const sourcePath = require('./sourcePath');
 
 let isDev = false;
 
@@ -21,46 +16,42 @@ const toggleIsDev = (done) => {
   done();
 };
 
-const css = () => {
-  let result = gulp.src(paths.css).pipe(concatCss('app.css'));
+const css = (cb) => {
+  const result = [gulp.src(sourcePath.proprietary.src.css), concatCss('app.css')];
 
   if (!isDev) {
-    result = result.pipe(cleanCSS({ compatibility: 'ie8' }));
+    result.push(cleanCSS({ compatibility: 'ie8' }));
   }
 
-  result = result.pipe(gulp.dest('publish/css')).pipe(browserSync.stream());
+  result.push(gulp.dest(sourcePath.proprietary.dest.css), browserSync.stream());
 
-  return result;
+  pump(result, cb);
 };
 
-const js = () => {
-  let result = gulp.src(paths.js).pipe(
+const js = (cb) => {
+  const result = [
+    gulp.src(sourcePath.proprietary.src.js),
     babel({
       presets: ['@babel/env'],
     }),
-  );
+  ];
 
   if (!isDev) {
-    result = result
-      .pipe(uglify())
-      .pipe(gulp.dest('publish/js'))
-      .pipe(browserSync.stream());
+    result.push(uglify());
   } else {
-    result = result
-      .pipe(sourcemaps.init())
-      .pipe(sourcemaps.write())
-      .pipe(gulp.dest('publish/js'))
-      .pipe(browserSync.stream());
+    result.push(sourcemaps.init(), sourcemaps.write());
   }
 
-  return result;
+  result.push(gulp.dest(sourcePath.proprietary.dest.js), browserSync.stream());
+
+  pump(result, cb);
 };
 
-const html = () => {
-  let result = gulp.src(paths.html);
+const html = (cb) => {
+  const result = [gulp.src(sourcePath.proprietary.src.html)];
 
   if (!isDev) {
-    result = result.pipe(
+    result.push(
       htmlmin({
         collapseWhitespace: true,
         removeComments: true,
@@ -69,37 +60,39 @@ const html = () => {
     );
   }
 
-  result = result.pipe(gulp.dest('./')).pipe(browserSync.stream());
+  result.push(gulp.dest(sourcePath.proprietary.dest.html), browserSync.stream());
 
-  return result;
+  pump(result, cb);
 };
 
 const publishJsVendors = (done) => {
-  gulp.src(config.jsVendorsSourcePath).pipe(gulp.dest(config.jsVendorsDestPath));
+  gulp.src(sourcePath.vendors.src.js).pipe(gulp.dest(sourcePath.vendors.dest.js));
   done();
 };
 
 const publishCssVendors = (done) => {
-  gulp.src(config.cssVendorsSourcePath).pipe(gulp.dest(config.cssVendorsDestPath));
+  gulp.src(sourcePath.vendors.src.css).pipe(gulp.dest(sourcePath.vendors.dest.css));
   done();
 };
 
 const publishFontRobotoVendors = (done) => {
-  gulp.src(config.fontVendorsRobotoSourcePath).pipe(gulp.dest(config.fontVendorsRobotoDestPath));
+  gulp
+    .src(sourcePath.vendors.src.fonts.roboto)
+    .pipe(gulp.dest(sourcePath.vendors.dest.fonts.roboto));
   done();
 };
 
 const publishFontMaterialVendors = (done) => {
   gulp
-    .src(config.fontVendorsMaterialSourcePath)
-    .pipe(gulp.dest(config.fontVendorsMaterialDestPath));
+    .src(sourcePath.vendors.src.fonts.material)
+    .pipe(gulp.dest(sourcePath.vendors.dest.fonts.material));
   done();
 };
 
 const publishFontAwesomeVendors = (done) => {
   gulp
-    .src(config.fontVendorsFontAwesomeSourcePath)
-    .pipe(gulp.dest(config.fontVendorsFontAwesomeDestPath));
+    .src(sourcePath.vendors.src.fonts.fontAwesome)
+    .pipe(gulp.dest(sourcePath.vendors.dest.fonts.fontAwesome));
   done();
 };
 
@@ -131,9 +124,9 @@ const build = gulp.series(
 );
 
 const watch = () => {
-  gulp.watch(paths.css, gulp.series(css, reload));
-  gulp.watch(paths.js, gulp.series(js, reload));
-  gulp.watch(paths.html, gulp.series(html, reload));
+  gulp.watch(sourcePath.proprietary.src.css, gulp.series(css, reload));
+  gulp.watch(sourcePath.proprietary.src.js, gulp.series(js, reload));
+  gulp.watch(sourcePath.proprietary.src.html, gulp.series(html, reload));
 };
 
 gulp.task('build', build);

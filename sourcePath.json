@@ -1,65 +1,87 @@
 {
-  "jsVendorsSourcePath": [
-    "./node_modules/mdbootstrap/js/jquery-3.3.1.min.js",
-    "./node_modules/mdbootstrap/js/bootstrap.min.js",
-    "./node_modules/mdbootstrap/js/popper.min.js",
-    "./node_modules/mdbootstrap/js/mdb.min.js"
-  ],
-  "cssVendorsSourcePath": [
-    "./node_modules/@fortawesome/fontawesome-free/css/all.min.css",
-    "./node_modules/material-design-iconic-font/dist/css/material-design-iconic-font.min.css",
-    "./node_modules/mdbootstrap/css/bootstrap.min.css",
-    "./node_modules/mdbootstrap/css/mdb.min.css"
-  ],
-  "fontVendorsRobotoSourcePath": [
-    "./node_modules/mdbootstrap/font/roboto/Roboto-Bold.eot",
-    "./node_modules/mdbootstrap/font/roboto/Roboto-Bold.ttf",
-    "./node_modules/mdbootstrap/font/roboto/Roboto-Bold.woff",
-    "./node_modules/mdbootstrap/font/roboto/Roboto-Bold.woff2",
-    "./node_modules/mdbootstrap/font/roboto/Roboto-Light.eot",
-    "./node_modules/mdbootstrap/font/roboto/Roboto-Light.ttf",
-    "./node_modules/mdbootstrap/font/roboto/Roboto-Light.woff",
-    "./node_modules/mdbootstrap/font/roboto/Roboto-Light.woff2",
-    "./node_modules/mdbootstrap/font/roboto/Roboto-Medium.eot",
-    "./node_modules/mdbootstrap/font/roboto/Roboto-Medium.ttf",
-    "./node_modules/mdbootstrap/font/roboto/Roboto-Medium.woff",
-    "./node_modules/mdbootstrap/font/roboto/Roboto-Medium.woff2",
-    "./node_modules/mdbootstrap/font/roboto/Roboto-Regular.eot",
-    "./node_modules/mdbootstrap/font/roboto/Roboto-Regular.ttf",
-    "./node_modules/mdbootstrap/font/roboto/Roboto-Regular.woff",
-    "./node_modules/mdbootstrap/font/roboto/Roboto-Regular.woff2",
-    "./node_modules/mdbootstrap/font/roboto/Roboto-Thin.eot",
-    "./node_modules/mdbootstrap/font/roboto/Roboto-Thin.ttf",
-    "./node_modules/mdbootstrap/font/roboto/Roboto-Thin.woff",
-    "./node_modules/mdbootstrap/font/roboto/Roboto-Thin.woff2"
-  ],
-  "fontVendorsMaterialSourcePath": [
-    "./node_modules/material-design-iconic-font/dist/fonts/Material-Design-Iconic-Font.eot",
-    "./node_modules/material-design-iconic-font/dist/fonts/Material-Design-Iconic-Font.svg",
-    "./node_modules/material-design-iconic-font/dist/fonts/Material-Design-Iconic-Font.ttf",
-    "./node_modules/material-design-iconic-font/dist/fonts/Material-Design-Iconic-Font.woff",
-    "./node_modules/material-design-iconic-font/dist/fonts/Material-Design-Iconic-Font.woff2"
-  ],
-  "fontVendorsFontAwesomeSourcePath": [
-    "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.eot",
-    "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg",
-    "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf",
-    "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff",
-    "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2",
-    "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.eot",
-    "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.svg",
-    "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf",
-    "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff",
-    "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2",
-    "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.eot",
-    "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.svg",
-    "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf",
-    "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff",
-    "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2"
-  ],
-  "cssVendorsDestPath": "./publish/vendors/css/",
-  "jsVendorsDestPath": "./publish/vendors/js/",
-  "fontVendorsFontAwesomeDestPath": "./publish/vendors/webfonts/",
-  "fontVendorsMaterialDestPath": "./publish/vendors/fonts/",
-  "fontVendorsRobotoDestPath": "./publish/vendors/font/roboto/"
+  "vendors": {
+    "src": {
+      "js": [
+        "./node_modules/mdbootstrap/js/jquery-3.3.1.min.js",
+        "./node_modules/mdbootstrap/js/bootstrap.min.js",
+        "./node_modules/mdbootstrap/js/popper.min.js",
+        "./node_modules/mdbootstrap/js/mdb.min.js"
+      ],
+      "css": [
+        "./node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+        "./node_modules/material-design-iconic-font/dist/css/material-design-iconic-font.min.css",
+        "./node_modules/mdbootstrap/css/bootstrap.min.css",
+        "./node_modules/mdbootstrap/css/mdb.min.css"
+      ],
+      "fonts": {
+        "roboto": [
+          "./node_modules/mdbootstrap/font/roboto/Roboto-Bold.eot",
+          "./node_modules/mdbootstrap/font/roboto/Roboto-Bold.ttf",
+          "./node_modules/mdbootstrap/font/roboto/Roboto-Bold.woff",
+          "./node_modules/mdbootstrap/font/roboto/Roboto-Bold.woff2",
+          "./node_modules/mdbootstrap/font/roboto/Roboto-Light.eot",
+          "./node_modules/mdbootstrap/font/roboto/Roboto-Light.ttf",
+          "./node_modules/mdbootstrap/font/roboto/Roboto-Light.woff",
+          "./node_modules/mdbootstrap/font/roboto/Roboto-Light.woff2",
+          "./node_modules/mdbootstrap/font/roboto/Roboto-Medium.eot",
+          "./node_modules/mdbootstrap/font/roboto/Roboto-Medium.ttf",
+          "./node_modules/mdbootstrap/font/roboto/Roboto-Medium.woff",
+          "./node_modules/mdbootstrap/font/roboto/Roboto-Medium.woff2",
+          "./node_modules/mdbootstrap/font/roboto/Roboto-Regular.eot",
+          "./node_modules/mdbootstrap/font/roboto/Roboto-Regular.ttf",
+          "./node_modules/mdbootstrap/font/roboto/Roboto-Regular.woff",
+          "./node_modules/mdbootstrap/font/roboto/Roboto-Regular.woff2",
+          "./node_modules/mdbootstrap/font/roboto/Roboto-Thin.eot",
+          "./node_modules/mdbootstrap/font/roboto/Roboto-Thin.ttf",
+          "./node_modules/mdbootstrap/font/roboto/Roboto-Thin.woff",
+          "./node_modules/mdbootstrap/font/roboto/Roboto-Thin.woff2"
+        ],
+        "material": [
+          "./node_modules/material-design-iconic-font/dist/fonts/Material-Design-Iconic-Font.eot",
+          "./node_modules/material-design-iconic-font/dist/fonts/Material-Design-Iconic-Font.svg",
+          "./node_modules/material-design-iconic-font/dist/fonts/Material-Design-Iconic-Font.ttf",
+          "./node_modules/material-design-iconic-font/dist/fonts/Material-Design-Iconic-Font.woff",
+          "./node_modules/material-design-iconic-font/dist/fonts/Material-Design-Iconic-Font.woff2"
+        ],
+        "fontAwesome": [
+          "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.eot",
+          "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg",
+          "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf",
+          "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff",
+          "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2",
+          "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.eot",
+          "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.svg",
+          "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf",
+          "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff",
+          "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2",
+          "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.eot",
+          "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.svg",
+          "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf",
+          "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff",
+          "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2"
+        ]
+      }
+    },
+    "dest": {
+      "js": "./publish/vendors/js/",
+      "css": "./publish/vendors/css/",
+      "fonts": {
+        "roboto": "./publish/vendors/font/roboto/",
+        "material": "./publish/vendors/fonts/",
+        "fontAwesome": "./publish/vendors/webfonts/"
+      }
+    }
+  },
+  "proprietary": {
+    "src": {
+      "js": "js/*.js",
+      "css": "css/*.css",
+      "html": "html/index.html"
+    },
+    "dest": {
+      "js": "publish/js",
+      "css": "publish/css",
+      "html": "./"
+    }
+  }
 }
