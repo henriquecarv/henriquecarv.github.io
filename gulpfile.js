@@ -8,7 +8,7 @@ const htmlmin = require('gulp-htmlmin');
 const uglify = require('gulp-uglify');
 const pump = require('pump');
 const gulpStyleLint = require('gulp-stylelint');
-const sourcePath = require('./sourcePath');
+const sourcePath = require('./config/sourcePath');
 
 let isDev = false;
 

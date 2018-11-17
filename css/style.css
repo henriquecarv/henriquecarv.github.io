@@ -3,7 +3,7 @@ html, body, .view {
 }
 
 .bg-photo {
-  background: url(/content/img/Background_Image.jpg);
+  background: url(/img/Background_Image.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   -webkit-background-size: cover;

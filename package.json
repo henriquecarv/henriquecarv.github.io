@@ -1,5 +1,5 @@
 {
-  "name": "professional_portfolio",
+  "name": "henriquecarv.github.io",
   "version": "1.0.0",
   "description": "Professional Portfolio",
   "private": true,
@@ -9,7 +9,8 @@
     "postinstall": "npm audit fix -f",
     "prestart": "npm run check-modules",
     "start": "gulp",
-    "lint": "eslint . && gulp styleLint",
+    "lint": "eslint .",
+    "stylelint": "gulp styleLint",
     "prebuild": "npm run check-modules && npm run clean",
     "build": "gulp build"
   },
