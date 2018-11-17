@@ -7,6 +7,7 @@ const browserSync = require('browser-sync').create();
 const htmlmin = require('gulp-htmlmin');
 const uglify = require('gulp-uglify');
 const pump = require('pump');
+const gulpStyleLint = require('gulp-stylelint');
 const sourcePath = require('./sourcePath');
 
 let isDev = false;
@@ -16,11 +17,24 @@ const toggleIsDev = (done) => {
   done();
 };
 
+const styleLint = (cb) => {
+  const result = [
+    gulp.src(sourcePath.proprietary.src.css),
+    gulpStyleLint({
+      debug: true,
+      failAfterError: true,
+      reporters: [{ console: true, formatter: 'string' }],
+    }),
+  ];
+
+  pump(result, cb);
+};
+
 const css = (cb) => {
   const result = [gulp.src(sourcePath.proprietary.src.css), concatCss('app.css')];
 
   if (!isDev) {
-    result.push(cleanCSS({ compatibility: 'ie8' }));
+    result.push(cleanCSS({ compatibility: 'ie8', level: 2 }));
   }
 
   result.push(gulp.dest(sourcePath.proprietary.dest.css), browserSync.stream());
@@ -112,7 +126,7 @@ const serve = (done) => {
 
 const build = gulp.series(
   gulp.parallel(
-    css,
+    gulp.series(styleLint, css),
     js,
     publishJsVendors,
     publishCssVendors,
@@ -124,11 +138,13 @@ const build = gulp.series(
 );
 
 const watch = () => {
-  gulp.watch(sourcePath.proprietary.src.css, gulp.series(css, reload));
+  gulp.watch(sourcePath.proprietary.src.css, gulp.series(styleLint, css, reload));
   gulp.watch(sourcePath.proprietary.src.js, gulp.series(js, reload));
   gulp.watch(sourcePath.proprietary.src.html, gulp.series(html, reload));
 };
 
 gulp.task('build', build);
+
+gulp.task('styleLint', gulp.series(toggleIsDev, styleLint));
 
 gulp.task('default', gulp.series(toggleIsDev, build, serve, watch));
