@@ -11,6 +11,7 @@ const uglify = require('gulp-uglify');
 const pump = require('pump');
 const eslint = require('gulp-eslint');
 const styleLint = require('gulp-stylelint');
+const htmlHint = require('gulp-htmlhint');
 const sourcePath = require('./config/sourcePath');
 
 let isDev = false;
@@ -71,6 +72,17 @@ const js = (cb) => {
   }
 
   result.push(dest(sourcePath.proprietary.dest.js), browserSync.stream());
+
+  pump(result, cb);
+};
+
+const htmlLint = (cb) => {
+  const result = [
+    src(sourcePath.proprietary.src.html),
+    htmlHint('.htmlhintrc'),
+    htmlHint.reporter(),
+    htmlHint.failOnError(),
+  ];
 
   pump(result, cb);
 };
@@ -144,13 +156,13 @@ const build = series(
     publishFontMaterialVendors,
     publishFontAwesomeVendors,
   ),
-  html,
+  series(htmlLint, html),
 );
 
 const watchFiles = () => {
   watch(sourcePath.proprietary.src.css, series(cssLint, css, reload));
   watch(sourcePath.proprietary.src.js, series(jsLint, js, reload));
-  watch(sourcePath.proprietary.src.html, series(html, reload));
+  watch(sourcePath.proprietary.src.html, series(htmlLint, html, reload));
 };
 
 task('build', build);
@@ -158,5 +170,7 @@ task('build', build);
 task('styleLint', series(cssLint));
 
 task('eslint', series(jsLint));
+
+task('htmlLint', series(htmlLint));
 
 task('default', series(toggleIsDev, build, serve, watchFiles));

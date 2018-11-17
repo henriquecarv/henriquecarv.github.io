@@ -10,6 +10,7 @@
     "start": "gulp",
     "lint": "eslint .",
     "stylelint": "gulp styleLint",
+    "htmllint": "gulp htmlLint",
     "prebuild": "npm run check-modules && npm run clean",
     "build": "gulp build"
   },
@@ -42,10 +43,12 @@
     "gulp-clean-css": "^3.10.0",
     "gulp-concat-css": "^3.1.0",
     "gulp-eslint": "^5.0.0",
+    "gulp-htmlhint": "^2.2.1",
     "gulp-htmlmin": "^5.0.1",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-stylelint": "^8.0.0",
     "gulp-uglify": "^3.0.1",
+    "htmlhint": "^0.10.1",
     "pump": "^3.0.0",
     "stylelint": "^9.8.0",
     "stylelint-config-recommended": "^2.1.0"
