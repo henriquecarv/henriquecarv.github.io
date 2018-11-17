@@ -23,7 +23,3 @@ steps:
 - script: |
     npm run stylelint
   displayName: 'Stylint check'
-
-- script: |
-    npm run buil
-  displayName: 'Build'
