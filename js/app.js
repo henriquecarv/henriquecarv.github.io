@@ -3,8 +3,8 @@
 /* eslint-disable no-sequences */
 /* eslint-disable prefer-rest-params */
 /* eslint-disable no-param-reassign */
-
-
+/* eslint-disable no-unused-expressions */
+/* eslint-disable func-names */
 (($) => {
   $(document).ready(() => {
     ((i, s, o, g, r, a, m) => {
