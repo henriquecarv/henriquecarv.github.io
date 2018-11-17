@@ -1,4 +1,6 @@
-const gulp = require('gulp');
+const {
+  src, series, parallel, task, dest, watch,
+} = require('gulp');
 const sourcemaps = require('gulp-sourcemaps');
 const cleanCSS = require('gulp-clean-css');
 const babel = require('gulp-babel');
@@ -7,7 +9,8 @@ const browserSync = require('browser-sync').create();
 const htmlmin = require('gulp-htmlmin');
 const uglify = require('gulp-uglify');
 const pump = require('pump');
-const gulpStyleLint = require('gulp-stylelint');
+const eslint = require('gulp-eslint');
+const styleLint = require('gulp-stylelint');
 const sourcePath = require('./config/sourcePath');
 
 let isDev = false;
@@ -17,10 +20,10 @@ const toggleIsDev = (done) => {
   done();
 };
 
-const styleLint = (cb) => {
+const cssLint = (cb) => {
   const result = [
-    gulp.src(sourcePath.proprietary.src.css),
-    gulpStyleLint({
+    src(sourcePath.proprietary.src.css),
+    styleLint({
       debug: true,
       failAfterError: true,
       reporters: [{ console: true, formatter: 'string' }],
@@ -31,20 +34,31 @@ const styleLint = (cb) => {
 };
 
 const css = (cb) => {
-  const result = [gulp.src(sourcePath.proprietary.src.css), concatCss('app.css')];
+  const result = [src(sourcePath.proprietary.src.css), concatCss('app.css')];
 
   if (!isDev) {
     result.push(cleanCSS({ compatibility: 'ie8', level: 2 }));
   }
 
-  result.push(gulp.dest(sourcePath.proprietary.dest.css), browserSync.stream());
+  result.push(dest(sourcePath.proprietary.dest.css), browserSync.stream());
+
+  pump(result, cb);
+};
+
+const jsLint = (cb) => {
+  const result = [
+    src(sourcePath.proprietary.src.js),
+    eslint(),
+    eslint.format(),
+    eslint.failAfterError(),
+  ];
 
   pump(result, cb);
 };
 
 const js = (cb) => {
   const result = [
-    gulp.src(sourcePath.proprietary.src.js),
+    src(sourcePath.proprietary.src.js),
     babel({
       presets: ['@babel/env'],
     }),
@@ -56,13 +70,13 @@ const js = (cb) => {
     result.push(sourcemaps.init(), sourcemaps.write());
   }
 
-  result.push(gulp.dest(sourcePath.proprietary.dest.js), browserSync.stream());
+  result.push(dest(sourcePath.proprietary.dest.js), browserSync.stream());
 
   pump(result, cb);
 };
 
 const html = (cb) => {
-  const result = [gulp.src(sourcePath.proprietary.src.html)];
+  const result = [src(sourcePath.proprietary.src.html)];
 
   if (!isDev) {
     result.push(
@@ -74,39 +88,35 @@ const html = (cb) => {
     );
   }
 
-  result.push(gulp.dest(sourcePath.proprietary.dest.html), browserSync.stream());
+  result.push(dest(sourcePath.proprietary.dest.html), browserSync.stream());
 
   pump(result, cb);
 };
 
 const publishJsVendors = (done) => {
-  gulp.src(sourcePath.vendors.src.js).pipe(gulp.dest(sourcePath.vendors.dest.js));
+  src(sourcePath.vendors.src.js).pipe(dest(sourcePath.vendors.dest.js));
   done();
 };
 
 const publishCssVendors = (done) => {
-  gulp.src(sourcePath.vendors.src.css).pipe(gulp.dest(sourcePath.vendors.dest.css));
+  src(sourcePath.vendors.src.css).pipe(dest(sourcePath.vendors.dest.css));
   done();
 };
 
 const publishFontRobotoVendors = (done) => {
-  gulp
-    .src(sourcePath.vendors.src.fonts.roboto)
-    .pipe(gulp.dest(sourcePath.vendors.dest.fonts.roboto));
+  src(sourcePath.vendors.src.fonts.roboto).pipe(dest(sourcePath.vendors.dest.fonts.roboto));
   done();
 };
 
 const publishFontMaterialVendors = (done) => {
-  gulp
-    .src(sourcePath.vendors.src.fonts.material)
-    .pipe(gulp.dest(sourcePath.vendors.dest.fonts.material));
+  src(sourcePath.vendors.src.fonts.material).pipe(dest(sourcePath.vendors.dest.fonts.material));
   done();
 };
 
 const publishFontAwesomeVendors = (done) => {
-  gulp
-    .src(sourcePath.vendors.src.fonts.fontAwesome)
-    .pipe(gulp.dest(sourcePath.vendors.dest.fonts.fontAwesome));
+  src(sourcePath.vendors.src.fonts.fontAwesome).pipe(
+    dest(sourcePath.vendors.dest.fonts.fontAwesome),
+  );
   done();
 };
 
@@ -124,10 +134,10 @@ const serve = (done) => {
   done();
 };
 
-const build = gulp.series(
-  gulp.parallel(
-    gulp.series(styleLint, css),
-    js,
+const build = series(
+  parallel(
+    series(cssLint, css),
+    series(jsLint, js),
     publishJsVendors,
     publishCssVendors,
     publishFontRobotoVendors,
@@ -137,14 +147,16 @@ const build = gulp.series(
   html,
 );
 
-const watch = () => {
-  gulp.watch(sourcePath.proprietary.src.css, gulp.series(styleLint, css, reload));
-  gulp.watch(sourcePath.proprietary.src.js, gulp.series(js, reload));
-  gulp.watch(sourcePath.proprietary.src.html, gulp.series(html, reload));
+const watchFiles = () => {
+  watch(sourcePath.proprietary.src.css, series(cssLint, css, reload));
+  watch(sourcePath.proprietary.src.js, series(jsLint, js, reload));
+  watch(sourcePath.proprietary.src.html, series(html, reload));
 };
 
-gulp.task('build', build);
+task('build', build);
 
-gulp.task('styleLint', gulp.series(toggleIsDev, styleLint));
+task('styleLint', series(cssLint));
 
-gulp.task('default', gulp.series(toggleIsDev, build, serve, watch));
+task('eslint', series(jsLint));
+
+task('default', series(toggleIsDev, build, serve, watchFiles));
