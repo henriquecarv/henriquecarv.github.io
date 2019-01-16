@@ -1,61 +1,66 @@
 {
-  "name": "henriquecarv.github.io",
-  "version": "1.0.0",
-  "description": "Professional Portfolio",
-  "private": true,
-  "scripts": {
-    "check-modules": "if [ ! -d 'node_modules/' ]; then npm i; fi",
-    "clean": "rm -rf dist/ index.html",
-    "prestart": "npm run check-modules",
-    "start": "gulp",
-    "lint": "eslint .",
-    "stylelint": "gulp styleLint",
-    "htmllint": "gulp htmlLint",
-    "prebuild": "npm run check-modules && npm run clean",
-    "build": "gulp build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://henriquecarv@github.com/henriquecarv/henriquecarv.github.io.git"
-  },
-  "keywords": [
-    "portfolio",
-    "henriquecarv",
-    "bootstrap4",
-    "jquery",
-    "gulp",
-    "mdboostrap"
-  ],
-  "author": "Henrique Carvalho da Cruz <henriquecarv.cruz@gmail.com> (https://henriquecarv.com)",
-  "license": "MIT",
-  "homepage": "https://github.com/henriquecarv/henriquecarv.github.io#readme",
-  "issues": "https://github.com/henriquecarv/henriquecarv.github.io/issues",
-  "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.3",
-    "browser-sync": "^2.26.3",
-    "eslint": "^5.12.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "gulp": "^4.0.0",
-    "gulp-babel": "^8.0.0",
-    "gulp-clean-css": "^4.0.0",
-    "gulp-concat-css": "^3.1.0",
-    "gulp-eslint": "^5.0.0",
-    "gulp-htmlhint": "^2.2.1",
-    "gulp-htmlmin": "^5.0.1",
-    "gulp-sourcemaps": "^2.6.4",
-    "gulp-stylelint": "^8.0.0",
-    "gulp-uglify": "^3.0.1",
-    "htmlhint": "^0.10.1",
-    "pump": "^3.0.0",
-    "stylelint": "^9.9.0",
-    "stylelint-config-recommended": "^2.1.0"
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.6.3",
-    "material-design-iconic-font": "^2.2.0",
-    "mdbootstrap": "4.6.1"
-  }
+	"name": "henriquecarv.github.io",
+	"version": "2.0.0",
+	"description": "Professional Portfolio",
+	"private": true,
+	"scripts": {
+		"check-modules": "if [ ! -d 'node_modules/' ]; then npm i; fi",
+		"clean": "rm -rf dist/ index.html",
+		"prestart": "npm run check-modules",
+		"start": "gulp",
+		"lint": "eslint .",
+		"stylelint": "gulp styleLint",
+		"htmllint": "gulp htmlLint",
+		"prebuild": "npm run check-modules && npm run clean",
+		"build": "gulp build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://henriquecarv@github.com/henriquecarv/henriquecarv.github.io.git"
+	},
+	"keywords": [
+		"portfolio",
+		"henriquecarv",
+		"bootstrap4",
+		"mdboostrap",
+		"react"
+	],
+	"author": "Henrique Carvalho da Cruz <henriquecarv.cruz@gmail.com> (https://henriquecarv.com)",
+	"license": "MIT",
+	"homepage": "https://github.com/henriquecarv/henriquecarv.github.io#readme",
+	"issues": "https://github.com/henriquecarv/henriquecarv.github.io/issues",
+	"devDependencies": {
+		"@babel/cli": "^7.2.3",
+		"@babel/core": "^7.2.2",
+		"@babel/preset-env": "^7.2.3",
+		"autoprefixer": "^9.4.5",
+		"babel-loader": "^8.0.5",
+		"babel-minify-webpack-plugin": "^0.3.1",
+		"css-loader": "^2.1.0",
+		"eslint": "^5.12.0",
+		"eslint-config-airbnb": "^17.1.0",
+		"eslint-config-airbnb-base": "^13.1.0",
+		"eslint-plugin-import": "^2.14.0",
+		"eslint-plugin-jsx-a11y": "^6.1.2",
+		"eslint-plugin-react": "^7.12.3",
+		"htmlhint": "^0.10.1",
+		"node-sass": "^4.11.0",
+		"optimize-css-assets-webpack-plugin": "^5.0.1",
+		"postcss-loader": "^3.0.0",
+		"sass-loader": "^7.1.0",
+		"stylelint": "^9.9.0",
+		"stylelint-config-recommended": "^2.1.0",
+		"uglifyjs-webpack-plugin": "^2.1.1",
+		"webpack": "^4.28.4",
+		"webpack-cli": "^3.2.1",
+		"webpack-dev-server": "^3.1.14"
+	},
+	"dependencies": {
+		"@fortawesome/fontawesome-free": "^5.6.3",
+		"material-design-iconic-font": "^2.2.0",
+		"mdbreact": "^4.8.7",
+		"react": "^16.7.0",
+		"react-dom": "^16.7.0",
+		"react-hot-loader": "^4.6.3"
+	}
 }
