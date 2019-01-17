@@ -50,7 +50,7 @@
     "gulp-uglify": "^3.0.1",
     "htmlhint": "^0.10.1",
     "pump": "^3.0.0",
-    "stylelint": "^9.9.0",
+    "stylelint": "^9.10.0",
     "stylelint-config-recommended": "^2.1.0"
   },
   "dependencies": {
