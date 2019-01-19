@@ -8,10 +8,21 @@ const hashName = isProduction ? 'contentHash' : 'hash';
 
 module.exports = {
 	entry: {
-		app: './src/index.js',
+		app: './src/index.ts',
 	},
 	module: {
 		rules: [
+			{
+				test: /\.tsx?$/,
+				use: {
+					loader: 'ts-loader',
+					options: {
+						transpileOnly: true,
+						experimentalWatchApi: true,
+					},
+				},
+				exclude: /node_modules/,
+			},
 			{
 				test: /\.scss$/,
 				use: [styleLoader, 'css-loader', 'resolve-url-loader', 'sass-loader'],
@@ -36,4 +47,7 @@ module.exports = {
 			title: 'Progressive Web Application',
 		}),
 	],
+	resolve: {
+		extensions: ['.tsx', '.ts', '.js'],
+	},
 };
