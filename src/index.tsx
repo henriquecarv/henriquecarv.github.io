@@ -1,19 +1,8 @@
-import { cube } from './math';
-import './style.scss';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { Hello } from './HelloComponent/Hello';
 
-const component = () => {
-	const element = document.createElement('pre');
-
-	element.innerHTML = ['Hello webpack', `5 cubed is equal to ${cube(5)}`].join(
-		'\n\n',
-	);
-
-	return element;
-};
-
-let element = component();
-
-document.body.appendChild(element);
+ReactDOM.render(<Hello />, document.getElementById('root'));
 
 if ('serviceWorker' in navigator) {
 	window.addEventListener('load', () => {

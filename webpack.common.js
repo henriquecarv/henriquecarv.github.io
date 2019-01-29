@@ -8,10 +8,14 @@ const hashName = isProduction ? 'contentHash' : 'hash';
 
 module.exports = {
 	entry: {
-		app: './src/index.ts',
+		app: './src/index.tsx',
 	},
 	module: {
 		rules: [
+			{
+				test: /\.html$/,
+        loader: 'html-loader'
+			},
 			{
 				test: /\.tsx?$/,
 				use: {
@@ -39,12 +43,7 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			inject: false,
-			lang: 'en-US',
-			meta: { viewport: 'width=device-width, initial-scale=1.0' },
-			mobile: true,
-			template: require('html-webpack-template'),
-			title: 'Progressive Web Application',
+			template: './src/template/index.html',
 		}),
 	],
 	resolve: {
