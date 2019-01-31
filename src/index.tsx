@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Hello } from './HelloComponent/Hello';
+import Hello from './Components/Hello/Hello';
 
 ReactDOM.render(<Hello />, document.getElementById('root'));
 

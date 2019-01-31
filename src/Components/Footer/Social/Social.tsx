@@ -1,13 +1,13 @@
 import * as React from 'react';
 
-class Hello extends React.Component {
+class Social extends React.Component {
 	constructor(props: Readonly<{}>) {
 		super(props);
 	}
 
 	render() {
-		return <h1>Hello World</h1>;
+		return <h1>Hello Social!</h1>;
 	}
 }
 
-export { Hello };
+export { Social };
