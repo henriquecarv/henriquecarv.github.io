@@ -1,13 +1,13 @@
-import * as React from 'react';
+import * as React from "react";
 
 class Contact extends React.Component {
 	constructor(props: Readonly<{}>) {
 		super(props);
 	}
 
-	render() {
+	public render() {
 		return <h1>Hello Contact</h1>;
 	}
 }
 
-export { Contact };
+export default Contact;

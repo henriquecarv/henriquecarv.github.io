@@ -1,16 +1,16 @@
-import * as React from 'react';
-import { Component } from 'react';
-import Picture from './Picture/Picture';
-import Title from './Title/Title';
-import Bio from './Bio/Bio';
-import Resume from './Resume/Resume';
+import * as React from "react";
+import Bio from "./Bio/Bio";
+import Picture from "./Picture/Picture";
+import Resume from "./Resume/Resume";
+import Title from "./Title/Title";
+const { Component } = React;
 
 class Main extends Component {
 	constructor(props: Readonly<{}>) {
 		super(props);
 	}
 
-	render() {
+	public render() {
 		return (
 			<div className="h-100 bg-photo">
 				<div className="h-100 body">

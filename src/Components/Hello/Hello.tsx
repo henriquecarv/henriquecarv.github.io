@@ -1,11 +1,12 @@
-import * as React from 'react';
+import * as React from "react";
+const { Component } = React;
 
-class Hello extends React.Component {
+class Hello extends Component {
 	constructor(props: Readonly<{}>) {
 		super(props);
 	}
 
-	render() {
+	public render() {
 		return <h1>Hello World</h1>;
 	}
 }

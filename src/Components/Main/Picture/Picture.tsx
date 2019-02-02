@@ -1,12 +1,12 @@
-import * as React from 'react';
-import { Component, Fragment } from 'react';
+import * as React from "react";
+const { Component, Fragment } = React;
 
 class Picture extends Component {
 	constructor(props: Readonly<{}>) {
 		super(props);
 	}
 
-	render() {
+	public render() {
 		return (
 			<Fragment>
 				<section className="profile-picture">

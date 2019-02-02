@@ -1,7 +1,9 @@
 {
-  "extends": "airbnb-base",
-  "rules": {
-    "sort-keys": "warn",
-    "sort-vars": "warn"
-  }
+	"extends": ["airbnb-base"],
+	"rules": {
+		"sort-keys": "warn",
+		"sort-vars": "warn",
+		"require-jsdoc": "warn",
+		"quotes": ["error", "double"]
+	}
 }
