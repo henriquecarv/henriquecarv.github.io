@@ -2,6 +2,8 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import Hello from "./Components/Hello/Hello";
 
+import "./style.scss";
+
 ReactDOM.render(<Hello />, document.getElementById("root"));
 
 if ("serviceWorker" in navigator) {

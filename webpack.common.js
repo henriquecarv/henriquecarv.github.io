@@ -28,10 +28,17 @@ module.exports = {
         },
       },
       {
+        exclude: /node_modules/,
         test: /\.scss$/,
-        use: [styleLoader, "css-loader", "resolve-url-loader", "sass-loader"],
+        use: [
+          { loader: styleLoader },
+          { loader: "css-loader" },
+          { loader: "resolve-url-loader" },
+          { loader: "sass-loader", options: { sourceMap: true, sourceMapContents: false } },
+        ],
       },
       {
+        exclude: /node_modules/,
         test: /\.(woff|woff2|eot|ttf|otf)/,
         use: ["file-loader"],
       },
