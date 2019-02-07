@@ -94,6 +94,7 @@ const html = (cb) => {
     result.push(
       htmlmin({
         collapseWhitespace: true,
+        removeComments: true,
         removeEmptyAttributes: true,
       }),
     );
