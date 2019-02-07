@@ -66,7 +66,7 @@ const js = (cb) => {
   ];
 
   if (!isDev) {
-    result.push(uglify());
+    result.push(sourcemaps.init(), uglify(), sourcemaps.write());
   } else {
     result.push(sourcemaps.init(), sourcemaps.write());
   }
