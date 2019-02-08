@@ -1,5 +1,10 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
+$roboto-font-path: "~mdbreact/dist/font/roboto/";
+$image-path: "~mdbreact/dist/img";
+
+@import '~mdbreact/dist/scss/mdb';
+
 pre {
 	color: red;
 }
