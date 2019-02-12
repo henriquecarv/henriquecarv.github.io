@@ -38,9 +38,15 @@ module.exports = {
         ],
       },
       {
-        exclude: /node_modules/,
-        test: /\.(woff|woff2|eot|ttf|otf)/,
-        use: ["file-loader"],
+        test: /\.(woff|woff2|eot|ttf|otf|png|svg)/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: `[${hashName}].[ext]`,
+            },
+          },
+        ],
       },
     ],
   },

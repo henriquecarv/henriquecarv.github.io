@@ -7,6 +7,14 @@ const WorkboxPlugin = require("workbox-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const common = require("./webpack.common");
 
+const chunkFilter = (chunk) => {
+  if (chunk.name === "vendors") {
+    return false;
+  }
+
+  return true;
+};
+
 module.exports = merge(common, {
   devtool: "source-map",
   mode: "production",
@@ -15,13 +23,7 @@ module.exports = merge(common, {
       new OptimizeCSSAssetsPlugin({}),
       new UglifyJsPlugin({
         cache: true,
-        chunkFilter: (chunk) => {
-          if (chunk.name === "vendors") {
-            return false;
-          }
-
-          return true;
-        },
+        chunkFilter,
         sourceMap: true,
         uglifyOptions: {
           output: {
@@ -36,7 +38,7 @@ module.exports = merge(common, {
         vendor: {
           chunks: "all",
           name: "vendors",
-          test: /[\\/]node_modules[\\]/,
+          test: /node_modules/,
         },
       },
     },
