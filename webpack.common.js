@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const StyleLintPlugin = require("stylelint-webpack-plugin");
 const path = require("path");
 
 const isProduction = process.env.NODE_ENV === "production";
@@ -76,6 +77,10 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/template/index.html",
+    }),
+    new StyleLintPlugin({
+      configFile: ".stylelintrc.json",
+      syntax: "scss",
     }),
   ],
   resolve: {

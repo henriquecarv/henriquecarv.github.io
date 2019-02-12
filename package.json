@@ -8,14 +8,14 @@
 		"clean-dist": "rm -rf dist/",
 		"prewatch": "npm run check-modules",
 		"watch": "webpack --watch",
-		"prebuild": "npm run check-modules && npm run lint",
+		"prebuild": "npm run check-modules",
 		"build": "webpack --color --env.NODE_ENV=production --config webpack.prod.js",
-		"prestart": "npm run check-modules && npm run lint",
+		"prestart": "npm run check-modules",
 		"start": "webpack-dev-server --color --config webpack.dev.js",
 		"serve": "http-server dist",
 		"eslint": "eslint . --fix",
 		"tslint": "tslint -c tslint.json 'src/**/*.{ts,tsx}' --fix",
-		"lint": "npm run eslint"
+		"lint": "npm run eslint && npm run tslint"
 	},
 	"repository": {
 		"type": "git",
@@ -72,6 +72,7 @@
 		"optimize-css-assets-webpack-plugin": "^5.0.1",
 		"react": "^16.8.1",
 		"react-dom": "^16.8.1",
+		"stylelint-webpack-plugin": "^0.10.5",
 		"uglifyjs-webpack-plugin": "^2.1.1",
 		"webpack": "^4.29.3",
 		"webpack-merge": "^4.2.1",
