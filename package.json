@@ -15,7 +15,7 @@
 		"serve": "http-server dist",
 		"eslint": "eslint . --fix",
 		"tslint": "tslint -c tslint.json 'src/**/*.{ts,tsx}' --fix",
-		"lint": "npm run eslint && npm run tslint"
+		"lint": "npm run eslint"
 	},
 	"repository": {
 		"type": "git",
@@ -54,6 +54,7 @@
 		"stylelint-config-recommended": "^2.1.0",
 		"ts-loader": "^5.3.3",
 		"tslint": "^5.12.1",
+		"tslint-loader": "^3.5.4",
 		"tslint-react": "^3.6.0",
 		"typescript": "^3.3.3",
 		"webpack-cli": "^3.2.3",

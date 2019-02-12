@@ -13,19 +13,31 @@ module.exports = {
   module: {
     rules: [
       {
+        enforce: "pre",
+        test: /\.(ts|tsx)/,
+        use: [
+          {
+            loader: "tslint-loader",
+            options: { configFile: "tslint.json", tsConfigFile: "tsconfig.json" },
+          },
+        ],
+      },
+      {
         loader: "html-loader",
         test: /\.html$/,
       },
       {
         exclude: /node_modules/,
         test: /\.tsx?$/,
-        use: {
-          loader: "ts-loader",
-          options: {
-            experimentalWatchApi: true,
-            transpileOnly: true,
+        use: [
+          {
+            loader: "ts-loader",
+            options: {
+              experimentalWatchApi: true,
+              transpileOnly: true,
+            },
           },
-        },
+        ],
       },
       {
         exclude: /node_modules/,
