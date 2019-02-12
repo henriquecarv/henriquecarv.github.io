@@ -1,4 +1,5 @@
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
 const merge = require("webpack-merge");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
@@ -54,6 +55,9 @@ module.exports = merge(common, {
     new WorkboxPlugin.GenerateSW({
       clientsClaim: true,
       skipWaiting: true,
+    }),
+    new CompressionPlugin({
+      test: /\.js(\?.*)?$/i,
     }),
   ],
 });

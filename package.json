@@ -62,10 +62,11 @@
 	"dependencies": {
 		"@fortawesome/fontawesome-free": "^5.7.1",
 		"clean-webpack-plugin": "^1.0.1",
+		"compression-webpack-plugin": "^2.0.0",
 		"html-webpack-plugin": "^3.2.0",
 		"material-design-iconic-font": "^2.2.0",
-		"mini-css-extract-plugin": "^0.5.0",
 		"mdbreact": "^4.10.0",
+		"mini-css-extract-plugin": "^0.5.0",
 		"optimize-css-assets-webpack-plugin": "^5.0.1",
 		"react": "^16.8.1",
 		"react-dom": "^16.8.1",
