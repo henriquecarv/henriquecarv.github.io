@@ -14,6 +14,7 @@ module.exports = {
     rules: [
       {
         enforce: "pre",
+        exclude: /node_modules/,
         test: /\.(ts|tsx)/,
         use: [
           {
@@ -21,6 +22,12 @@ module.exports = {
             options: { configFile: "tslint.json", tsConfigFile: "tsconfig.json" },
           },
         ],
+      },
+      {
+        enforce: "pre",
+        exclude: /node_modules/,
+        loader: "eslint-loader",
+        test: /\.js$/,
       },
       {
         loader: "html-loader",
