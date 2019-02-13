@@ -63,7 +63,7 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-              name: `[${hashName}].[ext]`,
+              name: `./dist/[${hashName}].[ext]`,
             },
           },
         ],
@@ -71,11 +71,12 @@ module.exports = {
     ],
   },
   output: {
-    filename: `[name].[${hashName}].js`,
-    path: path.resolve(__dirname, "dist"),
+    filename: `./dist/[name].[${hashName}].js`,
+    path: path.resolve(__dirname, "./"),
   },
   plugins: [
     new HtmlWebpackPlugin({
+      filename: "./index.html",
       template: "./src/template/index.html",
     }),
     new StyleLintPlugin({

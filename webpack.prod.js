@@ -49,12 +49,14 @@ module.exports = merge(common, {
     new CleanWebpackPlugin(["dist"]),
     new MiniCssExtractPlugin({
       chunkFilename: "[id].css",
-      filename: "[name].css",
+      filename: "./dist/[name].css",
     }),
     new webpack.HashedModuleIdsPlugin(),
     new WorkboxPlugin.GenerateSW({
       clientsClaim: true,
+      precacheManifestFilename: "./dist/precache-manifest.[manifestHash].js",
       skipWaiting: true,
+      swDest: "./dist/service-worker.js",
     }),
     new CompressionPlugin({
       test: /\.js(\?.*)?$/i,
