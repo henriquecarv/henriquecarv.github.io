@@ -5,14 +5,15 @@
 	"private": true,
 	"scripts": {
 		"check-modules": "if [ ! -d 'node_modules/' ]; then npm i; fi",
-		"clean-dist": "rm -rf dist/",
+		"clean-dist": "rm -rf dist/ index.html",
 		"prewatch": "npm run check-modules",
 		"watch": "webpack --watch",
 		"prebuild": "npm run check-modules",
 		"build": "webpack --color --env.NODE_ENV=production --config webpack.prod.js",
 		"prestart": "npm run check-modules",
 		"start": "webpack-dev-server --color --config webpack.dev.js",
-		"serve": "http-server dist",
+		"preserve": "npm run build",
+		"serve": "http-server .",
 		"eslint": "eslint . --fix",
 		"tslint": "tslint -c tslint.json 'src/**/*.{ts,tsx}' --fix",
 		"lint": "npm run eslint && npm run tslint"

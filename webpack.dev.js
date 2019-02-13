@@ -6,7 +6,7 @@ module.exports = merge(common, {
   devServer: {
     bonjour: true,
     compress: true,
-    contentBase: "./dist",
+    contentBase: "./",
     host: "localhost",
     hot: true,
     open: true,
