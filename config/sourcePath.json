@@ -9,7 +9,6 @@
       ],
       "css": [
         "./node_modules/@fortawesome/fontawesome-free/css/all.min.css",
-        "./node_modules/material-design-iconic-font/dist/css/material-design-iconic-font.min.css",
         "./node_modules/mdbootstrap/css/bootstrap.min.css",
         "./node_modules/mdbootstrap/css/mdb.min.css"
       ],
@@ -36,13 +35,6 @@
           "./node_modules/mdbootstrap/font/roboto/Roboto-Thin.woff",
           "./node_modules/mdbootstrap/font/roboto/Roboto-Thin.woff2"
         ],
-        "material": [
-          "./node_modules/material-design-iconic-font/dist/fonts/Material-Design-Iconic-Font.eot",
-          "./node_modules/material-design-iconic-font/dist/fonts/Material-Design-Iconic-Font.svg",
-          "./node_modules/material-design-iconic-font/dist/fonts/Material-Design-Iconic-Font.ttf",
-          "./node_modules/material-design-iconic-font/dist/fonts/Material-Design-Iconic-Font.woff",
-          "./node_modules/material-design-iconic-font/dist/fonts/Material-Design-Iconic-Font.woff2"
-        ],
         "fontAwesome": [
           "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.eot",
           "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg",
@@ -67,7 +59,6 @@
       "css": "./dist/vendors/css/",
       "fonts": {
         "roboto": "./dist/vendors/font/roboto/",
-        "material": "./dist/vendors/fonts/",
         "fontAwesome": "./dist/vendors/webfonts/"
       }
     }
