@@ -74,9 +74,9 @@
   },
   "proprietary": {
     "src": {
-      "js": "js/*.js",
-      "css": "css/*.css",
-      "html": "html/index.html"
+      "js": "src/js/*.js",
+      "css": "src/css/*.css",
+      "html": "src/html/index.html"
     },
     "dest": {
       "js": "dist/js",
