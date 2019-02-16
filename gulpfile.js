@@ -21,7 +21,7 @@ const toggleIsDev = (done) => {
   done();
 };
 
-const cssLint = (cb) => {
+const cssLint = (callback) => {
   const result = [
     src(sourcePath.proprietary.src.css),
     styleLint({
@@ -31,10 +31,10 @@ const cssLint = (cb) => {
     }),
   ];
 
-  pump(result, cb);
+  pump(result, callback);
 };
 
-const css = (cb) => {
+const css = (callback) => {
   const result = [src(sourcePath.proprietary.src.css), concatCss('app.css')];
 
   if (!isDev) {
@@ -43,10 +43,10 @@ const css = (cb) => {
 
   result.push(dest(sourcePath.proprietary.dest.css), browserSync.stream());
 
-  pump(result, cb);
+  pump(result, callback);
 };
 
-const jsLint = (cb) => {
+const jsLint = (callback) => {
   const result = [
     src(sourcePath.proprietary.src.js),
     eslint(),
@@ -54,10 +54,10 @@ const jsLint = (cb) => {
     eslint.failAfterError(),
   ];
 
-  pump(result, cb);
+  pump(result, callback);
 };
 
-const js = (cb) => {
+const js = (callback) => {
   const result = [
     src(sourcePath.proprietary.src.js),
     babel({
@@ -65,18 +65,20 @@ const js = (cb) => {
     }),
   ];
 
+  result.push(sourcemaps.init());
+
   if (!isDev) {
-    result.push(sourcemaps.init(), uglify(), sourcemaps.write());
-  } else {
-    result.push(sourcemaps.init(), sourcemaps.write());
+    result.push(uglify());
   }
+
+  result.push(sourcemaps.write());
 
   result.push(dest(sourcePath.proprietary.dest.js), browserSync.stream());
 
-  pump(result, cb);
+  pump(result, callback);
 };
 
-const htmlLint = (cb) => {
+const htmlLint = (callback) => {
   const result = [
     src(sourcePath.proprietary.src.html),
     htmlHint('.htmlhintrc'),
@@ -84,10 +86,10 @@ const htmlLint = (cb) => {
     htmlHint.failOnError(),
   ];
 
-  pump(result, cb);
+  pump(result, callback);
 };
 
-const html = (cb) => {
+const html = (callback) => {
   const result = [src(sourcePath.proprietary.src.html)];
 
   if (!isDev) {
@@ -102,7 +104,7 @@ const html = (cb) => {
 
   result.push(dest(sourcePath.proprietary.dest.html), browserSync.stream());
 
-  pump(result, cb);
+  pump(result, callback);
 };
 
 const publishJsVendors = (done) => {
