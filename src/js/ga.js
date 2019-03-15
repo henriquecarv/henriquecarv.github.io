@@ -13,15 +13,9 @@
       a.async = 1;
       a.src = g;
       m.parentNode.insertBefore(a, m);
-    })(
-      window,
-      document,
-      'script',
-      `https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`,
-      'gtag',
-    );
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-    gtag('config', GTAG_ID);
-    gtag('send', 'pageview');
+    ga('create', GTAG_ID, 'auto');
+    ga('send', 'pageview');
   });
 })(jQuery);
