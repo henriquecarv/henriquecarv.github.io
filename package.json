@@ -55,6 +55,6 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.10.2",
-    "mdbootstrap": "4.8.8"
+    "mdbootstrap": "4.8.10"
   }
 }
