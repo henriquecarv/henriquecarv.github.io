@@ -54,7 +54,7 @@
     "stylelint-config-recommended": "^3.0.0"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.11.0",
+    "@fortawesome/fontawesome-free": "^5.11.1",
     "mdbootstrap": "4.8.10"
   }
 }
