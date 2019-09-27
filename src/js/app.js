@@ -2,19 +2,19 @@
 (($) => {
   $(document).ready(() => {
     const isMobile = $(window).width() < 480;
-    const urlProfilePicture = '/img/profile';
+    const urlProfilePicture = 'https://www.gravatar.com/avatar/45dc36c036a3034db00361897cd500f0.jpg?s=';
 
     const changeWidth = () => {
       if (isMobile) {
         $('.btn')
           .removeClass('btn-lg')
           .addClass('btn-md');
-        $('.img-fluid').attr('src', `${urlProfilePicture}_130.jpeg`);
+        $('.img-fluid').attr('src', `${urlProfilePicture}130.jpeg`);
       } else {
         $('.btn')
           .removeClass('btn-md')
           .addClass('btn-lg');
-        $('.img-fluid').attr('src', `${urlProfilePicture}_170.jpeg`);
+        $('.img-fluid').attr('src', `${urlProfilePicture}170.jpeg`);
       }
     };
 

@@ -5,10 +5,11 @@
   "private": true,
   "scripts": {
     "check-modules": "if [ ! -d 'node_modules/' ]; then npm i; fi",
+    "postinstall": "npm run build",
     "clean": "rm -rf dist/ index.html",
     "prestart": "npm run check-modules",
     "start": "gulp",
-    "lint": "eslint .",
+    "lint": "eslint . --fix",
     "stylelint": "gulp styleLint",
     "htmllint": "gulp htmlLint",
     "prebuild": "npm run check-modules && npm run clean",
