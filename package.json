@@ -5,14 +5,14 @@
   "private": true,
   "scripts": {
     "check-modules": "if [ ! -d 'node_modules/' ]; then npm i; fi",
-    "postinstall": "npm run build",
+    "postinstall": "yarn build",
     "clean": "rm -rf dist/ index.html",
-    "prestart": "npm run check-modules",
+    "prestart": "yarn check-modules",
     "start": "gulp",
     "lint": "eslint . --fix",
     "stylelint": "gulp styleLint",
     "htmllint": "gulp htmlLint",
-    "prebuild": "npm run check-modules && npm run clean",
+    "prebuild": "run-s check-modules clean",
     "build": "gulp build"
   },
   "repository": {
@@ -35,7 +35,7 @@
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
     "browser-sync": "^2.26.7",
-    "eslint": "^6.4.0",
+    "eslint": "^6.5.1",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.3.0",
@@ -59,6 +59,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",
-    "mdbootstrap": "4.8.10"
+    "mdbootstrap": "4.8.10",
+    "npm-run-all": "^4.1.5"
   }
 }
