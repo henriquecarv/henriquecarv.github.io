@@ -5,15 +5,15 @@
   "private": true,
   "scripts": {
     "check-modules": "if [ ! -d 'node_modules/' ]; then npm i; fi",
-    "postinstall": "yarn build",
     "clean": "rm -rf dist/ index.html",
-    "prestart": "yarn check-modules",
+    "prestart": "run-s check-modules build",
     "start": "gulp",
-    "lint": "eslint . --fix",
-    "stylelint": "gulp styleLint",
-    "htmllint": "gulp htmlLint",
+    "lint:js": "eslint . --fix",
+    "lint:style": "gulp styleLint",
+    "lint:html": "gulp htmlLint",
     "prebuild": "run-s check-modules clean",
-    "build": "gulp build"
+    "build": "gulp build",
+    "stage-files": "git add ."
   },
   "repository": {
     "type": "git",
@@ -52,6 +52,7 @@
     "gulp-stylelint": "^10.0.0",
     "gulp-uglify": "^3.0.2",
     "htmlhint": "^0.11.0",
+    "husky": "^3.0.9",
     "prettier": "^1.19.1",
     "pump": "^3.0.0",
     "stylelint": "^11.1.1",
@@ -59,7 +60,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",
-    "mdbootstrap": "4.8.11",
+    "mdbootstrap": "4.9.0",
     "npm-run-all": "^4.1.5"
   }
 }
