@@ -15,15 +15,15 @@ My professional portfolio.
 
 ## Installing
 
-- `npm install`
+- `yarn`
 
 ## Running Application
 
-- `npm start`
+- `yarn start`
 
 ## Building for production
 
-- `npm run build`
+- `yarn build`
 
 ## Template
 
