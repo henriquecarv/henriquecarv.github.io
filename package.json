@@ -50,7 +50,7 @@
     "gulp-htmlhint": "^3.0.0",
     "gulp-htmlmin": "^5.0.1",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-stylelint": "^11.0.0",
+    "gulp-stylelint": "^13.0.0",
     "gulp-uglify": "^3.0.2",
     "htmlhint": "^0.11.0",
     "husky": "^4.0.10",
