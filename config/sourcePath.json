@@ -13,28 +13,6 @@
         "./node_modules/mdbootstrap/css/mdb.min.css"
       ],
       "fonts": {
-        "roboto": [
-          "./node_modules/mdbootstrap/font/roboto/Roboto-Bold.eot",
-          "./node_modules/mdbootstrap/font/roboto/Roboto-Bold.ttf",
-          "./node_modules/mdbootstrap/font/roboto/Roboto-Bold.woff",
-          "./node_modules/mdbootstrap/font/roboto/Roboto-Bold.woff2",
-          "./node_modules/mdbootstrap/font/roboto/Roboto-Light.eot",
-          "./node_modules/mdbootstrap/font/roboto/Roboto-Light.ttf",
-          "./node_modules/mdbootstrap/font/roboto/Roboto-Light.woff",
-          "./node_modules/mdbootstrap/font/roboto/Roboto-Light.woff2",
-          "./node_modules/mdbootstrap/font/roboto/Roboto-Medium.eot",
-          "./node_modules/mdbootstrap/font/roboto/Roboto-Medium.ttf",
-          "./node_modules/mdbootstrap/font/roboto/Roboto-Medium.woff",
-          "./node_modules/mdbootstrap/font/roboto/Roboto-Medium.woff2",
-          "./node_modules/mdbootstrap/font/roboto/Roboto-Regular.eot",
-          "./node_modules/mdbootstrap/font/roboto/Roboto-Regular.ttf",
-          "./node_modules/mdbootstrap/font/roboto/Roboto-Regular.woff",
-          "./node_modules/mdbootstrap/font/roboto/Roboto-Regular.woff2",
-          "./node_modules/mdbootstrap/font/roboto/Roboto-Thin.eot",
-          "./node_modules/mdbootstrap/font/roboto/Roboto-Thin.ttf",
-          "./node_modules/mdbootstrap/font/roboto/Roboto-Thin.woff",
-          "./node_modules/mdbootstrap/font/roboto/Roboto-Thin.woff2"
-        ],
         "fontAwesome": [
           "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.eot",
           "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg",
@@ -58,7 +36,6 @@
       "js": "./dist/vendors/js/",
       "css": "./dist/vendors/css/",
       "fonts": {
-        "roboto": "./dist/vendors/font/roboto/",
         "fontAwesome": "./dist/vendors/webfonts/"
       }
     }

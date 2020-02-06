@@ -115,13 +115,6 @@ const publishCssVendors = done => {
   done();
 };
 
-const publishFontRobotoVendors = done => {
-  src(sourcePath.vendors.src.fonts.roboto).pipe(
-    dest(sourcePath.vendors.dest.fonts.roboto)
-  );
-  done();
-};
-
 const publishFontAwesomeVendors = done => {
   src(sourcePath.vendors.src.fonts.fontAwesome).pipe(
     dest(sourcePath.vendors.dest.fonts.fontAwesome)
@@ -149,7 +142,6 @@ const build = series(
     series(jsLint, js),
     publishJsVendors,
     publishCssVendors,
-    publishFontRobotoVendors,
     publishFontAwesomeVendors
   ),
   series(htmlLint, html)
