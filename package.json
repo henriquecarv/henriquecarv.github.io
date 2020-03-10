@@ -56,7 +56,7 @@
     "husky": "^4.2.1",
     "prettier": "^1.19.1",
     "pump": "^3.0.0",
-    "stylelint": "^13.0.0",
+    "stylelint": "^13.2.1",
     "stylelint-config-recommended": "^3.0.0"
   },
   "dependencies": {
