@@ -14,25 +14,25 @@ const sourcePath = require("./config/sourcePath");
 
 let isDev = false;
 
-const toggleIsDev = done => {
+const toggleIsDev = (done) => {
   isDev = !isDev;
   done();
 };
 
-const cssLint = callback => {
+const cssLint = (callback) => {
   const result = [
     src(sourcePath.proprietary.src.css),
     styleLint({
       debug: true,
       failAfterError: true,
-      reporters: [{ console: true, formatter: "string" }]
-    })
+      reporters: [{ console: true, formatter: "string" }],
+    }),
   ];
 
   pump(result, callback);
 };
 
-const css = callback => {
+const css = (callback) => {
   const result = [src(sourcePath.proprietary.src.css), concatCss("app.css")];
 
   if (!isDev) {
@@ -44,23 +44,23 @@ const css = callback => {
   pump(result, callback);
 };
 
-const jsLint = callback => {
+const jsLint = (callback) => {
   const result = [
     src(sourcePath.proprietary.src.js),
     eslint(),
     eslint.format(),
-    eslint.failAfterError()
+    eslint.failAfterError(),
   ];
 
   pump(result, callback);
 };
 
-const js = callback => {
+const js = (callback) => {
   const result = [
     src(sourcePath.proprietary.src.js),
     babel({
-      presets: ["@babel/env"]
-    })
+      presets: ["@babel/env"],
+    }),
   ];
 
   result.push(sourcemaps.init());
@@ -76,18 +76,18 @@ const js = callback => {
   pump(result, callback);
 };
 
-const htmlLint = callback => {
+const htmlLint = (callback) => {
   const result = [
     src(sourcePath.proprietary.src.html),
     htmlHint(".htmlhintrc"),
     htmlHint.reporter(),
-    htmlHint.failOnError()
+    htmlHint.failOnError(),
   ];
 
   pump(result, callback);
 };
 
-const html = callback => {
+const html = (callback) => {
   const result = [src(sourcePath.proprietary.src.html)];
 
   if (!isDev) {
@@ -95,7 +95,7 @@ const html = callback => {
       htmlmin({
         collapseWhitespace: true,
         removeComments: true,
-        removeEmptyAttributes: true
+        removeEmptyAttributes: true,
       })
     );
   }
@@ -105,33 +105,33 @@ const html = callback => {
   pump(result, callback);
 };
 
-const publishJsVendors = done => {
+const publishJsVendors = (done) => {
   src(sourcePath.vendors.src.js).pipe(dest(sourcePath.vendors.dest.js));
   done();
 };
 
-const publishCssVendors = done => {
+const publishCssVendors = (done) => {
   src(sourcePath.vendors.src.css).pipe(dest(sourcePath.vendors.dest.css));
   done();
 };
 
-const publishFontAwesomeVendors = done => {
+const publishFontAwesomeVendors = (done) => {
   src(sourcePath.vendors.src.fonts.fontAwesome).pipe(
     dest(sourcePath.vendors.dest.fonts.fontAwesome)
   );
   done();
 };
 
-const reload = done => {
+const reload = (done) => {
   browserSync.reload();
   done();
 };
 
-const serve = done => {
+const serve = (done) => {
   browserSync.init({
     server: {
-      baseDir: "./"
-    }
+      baseDir: "./",
+    },
   });
   done();
 };

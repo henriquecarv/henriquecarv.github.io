@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-($ => {
+(($) => {
   $(document).ready(() => {
     const isMobile = $(window).width() < 480;
     const urlProfilePicture =
@@ -7,14 +7,10 @@
 
     const changeWidth = () => {
       if (isMobile) {
-        $(".btn")
-          .removeClass("btn-lg")
-          .addClass("btn-md");
+        $(".btn").removeClass("btn-lg").addClass("btn-md");
         $(".img-fluid").attr("src", `${urlProfilePicture}130.jpeg`);
       } else {
-        $(".btn")
-          .removeClass("btn-md")
-          .addClass("btn-lg");
+        $(".btn").removeClass("btn-md").addClass("btn-lg");
         $(".img-fluid").attr("src", `${urlProfilePicture}170.jpeg`);
       }
     };
