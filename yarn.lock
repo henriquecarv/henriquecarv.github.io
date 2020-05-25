@@ -4581,10 +4581,10 @@ mdast-util-compact@^2.0.0:
   dependencies:
     unist-util-visit "^2.0.0"
 
-mdbootstrap@4.18.0:
-  version "4.18.0"
-  resolved "https://registry.yarnpkg.com/mdbootstrap/-/mdbootstrap-4.18.0.tgz#e5803cc997b92c5e73824dc8d131059799969d34"
-  integrity sha512-4ztF6J460R4cbJAISKUSHzSBlPgjZy7fnuUATlbeHbLTLL7ZJwfJ1kibg2yX5dHz9KgJzcr9OKHBsnJAx9T0SA==
+mdbootstrap@4.19.0:
+  version "4.19.0"
+  resolved "https://registry.yarnpkg.com/mdbootstrap/-/mdbootstrap-4.19.0.tgz#b6da8e74b6f13353e83afefd134ff5123fd3e244"
+  integrity sha512-znMvzFGzfjRNO70wv2PXdGsFYb6VwAQ1LUw1r07fpREXhSFKAvAhoBZbaz+pOu8tiOzXBm62Y0H9Bm3C/197rw==
 
 memoizee@0.4.X:
   version "0.4.14"
