@@ -52,7 +52,7 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-stylelint": "^13.0.0",
     "gulp-uglify": "^3.0.2",
-    "htmlhint": "^0.14.1",
+    "htmlhint": "^0.14.2",
     "husky": "^4.2.5",
     "prettier": "^2.0.5",
     "pump": "^3.0.0",
