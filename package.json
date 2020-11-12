@@ -49,7 +49,7 @@
     "gulp-eslint": "^6.0.0",
     "gulp-htmlhint": "^3.0.1",
     "gulp-htmlmin": "^5.0.1",
-    "gulp-sourcemaps": "^2.6.5",
+    "gulp-sourcemaps": "^3.0.0",
     "gulp-stylelint": "^13.0.0",
     "gulp-uglify": "^3.0.2",
     "htmlhint": "^0.14.1",
