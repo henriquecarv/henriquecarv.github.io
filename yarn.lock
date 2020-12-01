@@ -4779,10 +4779,10 @@ mdast-util-compact@^2.0.0:
   dependencies:
     unist-util-visit "^2.0.0"
 
-mdbootstrap@4.19.1:
-  version "4.19.1"
-  resolved "https://registry.yarnpkg.com/mdbootstrap/-/mdbootstrap-4.19.1.tgz#91b8256951b061f735aa726fe78800e0a3c2fd01"
-  integrity sha512-vzYd7UQ0H1tyJfDqCYwsAv+sxol/xRkJP/5FMhcdW3ZbN9xUnmWiSPHx3A6ddGxdOQbfJTWxT3G8M+I++Qdk6w==
+mdbootstrap@4.19.2:
+  version "4.19.2"
+  resolved "https://registry.yarnpkg.com/mdbootstrap/-/mdbootstrap-4.19.2.tgz#21007a6b7d89cf5420d803a27db344edfa00be31"
+  integrity sha512-a+LwPflYRYwlmYKTvftW0X7SfOMrRZ02qZjrssNko1lPU/HR5JRFc1uwa3Dmmw+6TwsYH760waqdghBFrucpOw==
 
 memoizee@0.4.X:
   version "0.4.14"
