@@ -33,7 +33,7 @@
   "homepage": "https://github.com/henriquecarv/henriquecarv.github.io#readme",
   "issues": "https://github.com/henriquecarv/henriquecarv.github.io/issues",
   "devDependencies": {
-    "@babel/core": "^7.11.1",
+    "@babel/core": "^7.12.16",
     "@babel/preset-env": "^7.11.0",
     "browser-sync": "^2.26.12",
     "eslint": "^7.6.0",
